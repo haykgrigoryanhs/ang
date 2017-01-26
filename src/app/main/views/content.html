@@ -51,7 +51,7 @@
                     <th class="col-md-1">
                         <input type="checkbox" />
                     </th>
-                    <td class="col-md-12"><span>{{prod_conn.alias}}</span></td>
+                    <td class="col-md-12"><span>{{prod_conn.definedISeries.alias}}</span></td>
                     <td class="col-md-1">
                         <span class="glyphicon glyphicon-option-vertical"></span>
                     </td>
@@ -95,6 +95,7 @@
             <ng-include src="'app/main/views/_logging.html'"></ng-include>
         </div>
     </div>
+
 
     <div ng-switch-when="userSettingList">
         <h1 class="user_setting">User Settings</h1>
@@ -151,6 +152,11 @@
         <ng-include src="'./app/main/views/_new_profile_page.html'"></ng-include>
     </div>
 
+
+
+    <div ng-switch-when="documentDetails">
+        <div ng-include src ="'app/main/views/documentDetails.html'"></div>
+    </div>
 
     <div ng-switch-default>
         <h2>Hello World</h2>

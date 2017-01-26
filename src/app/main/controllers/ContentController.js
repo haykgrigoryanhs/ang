@@ -14,24 +14,35 @@
             $scope.documentList = null;
 
             $scope.systemId = null;
-            HelperService.init();
             $scope.contentType = false;
         }
 
 
+
         $scope.$on('showInboxes', function (events, args) {
             var paras = {
-                $top:25,
-                $skip:0,
+                // $top:25,
+                // $skip:0,
                 $direction:0,
-                $orderby:null
+                // $orderby:null
             };
             $scope.systemId = args.id;
 
-            $scope.inboxesData = HelperService.getInboxes(paras, $scope.systemId);
-            $scope.inboxes = $scope.inboxesData.responses;
+            // HelperService.getInboxesAccess({}, $scope.systemId).then(function (resp) {
+            //     if(resp.data.access){
+            //         HelperService.getInboxes(paras, $scope.systemId).then(function () {
+            //             $scope.inboxes = data.responses;
+            //             $scope.contentType = 'inboxList';
+            //         });
+            //     }
+            // });
+
+           var data =  HelperService.getInboxes(paras, $scope.systemId);
+            if(data){
+                $rootScope.pending = false;
+            }
+            $scope.inboxes = data.responses;
             $scope.contentType = 'inboxList';
-            console.log($scope.inboxes);
         });
         
         $scope.$on('showUserSettings', function(event, args) {
@@ -55,9 +66,12 @@
         });
 
         $scope.loadDocumentsList = function (data) {
-            $scope.documentListData = HelperService.getInboxDocuments($scope.systemId, data.fsuseracc);
-            $scope.documentList = $scope.documentListData.responses;
-            $scope.contentType = 'documentList';
+            HelperService.getInboxDocuments($scope.systemId, data.fsuseracc).then(function (resp) {
+                $rootScope.pending = false;
+                $scope.documentList = resp.data.responses;
+                $scope.contentType = 'documentList';
+            });
+
         };
         
         $scope.loadProfilesList = function (data) {
@@ -77,9 +91,57 @@
 
 
         $scope.loadDocumentDetails = function (data) {
+            HelperService.getDocumentDetails($scope.systemId, data.docId).then(function (resp) {
+                $rootScope.pending = false;
+                $scope.documentDetails = resp.data;
 
-            $scope.documentDetails = HelperService.getDocumentDetails($scope.systemId, data.docId);
-            console.log($scope.documentDetails);
+
+                $scope.data = [
+                    {
+                        label: 'Doc path',
+                        val: $scope.documentDetails.docDetails.docpath,
+                    },
+                    {
+                        label: 'Doc Id',
+                        val: $scope.documentDetails.docDetails.docid,
+                    },{
+                        label: 'Doc type',
+                        val: $scope.documentDetails.docDetails.doctype,
+                    },{
+                        label: 'Keyword 1',
+                        val: $scope.documentDetails.docDetails.keyword1,
+                    },{
+                        label: 'Keyword 2',
+                        val: $scope.documentDetails.docDetails.keyword2,
+                    },{
+                        label: 'Keyword 3',
+                        val: $scope.documentDetails.docDetails.keyword3,
+                    },{
+                        label: 'Keyword 4',
+                        val: $scope.documentDetails.docDetails.keyword4,
+                    },{
+                        label: 'Keyword 5',
+                        val: $scope.documentDetails.docDetails.keyword5,
+                    },{
+                        label: 'Keyword 6',
+                        val: $scope.documentDetails.docDetails.keyword6,
+                    },{
+                        label: 'Keyword 7',
+                        val: $scope.documentDetails.docDetails.keyword7,
+                    },{
+                        label: 'Keyword 8',
+                        val: $scope.documentDetails.docDetails.keyword8,
+                    },{
+                        label: 'Keyword 9',
+                        val: $scope.documentDetails.docDetails.keyword9,
+                    },{
+                        label: 'Keyword 10',
+                        val: $scope.documentDetails.docDetails.keyword10,
+                    },
+                ];
+                $scope.contentType = 'documentDetails';
+            });
+
         };
 
         $scope.$on('showAdminSettings', function (events) {
@@ -87,7 +149,7 @@
         });
 
         $scope.showProductConnectionsList = function () {
-            $scope.connectionDefinition = $rootScope.credentials.credentials[0].definedISeries;
+            $scope.connectionDefinition = $rootScope.credentials;
             $scope.contentType = 'product_connections';
         };
 

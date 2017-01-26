@@ -1,19 +1,28 @@
-'use strict';
-
+/**
+ * Created by akaramya on 1/26/2017.
+ */
 (function (helpSystems) {
     var SettingController = ['$rootScope', '$scope', 'HelperService', 'AuthService', function ($rootScope, $scope, HelperService, AuthService) {
 
         function init() {
-            HelperService.init();
+            $scope.credentials  = $rootScope.credentials;
+            // $scope.connectionDefinition = $rootScope.credentials.credentials[0].connectionDefinition;
         }
 
-        $scope.showAdminSettings = function(){
-            $scope.emitAdminSettings();
-        };
+        $scope.$on('initCredentials', function (events, args) {
+            $scope.credentials  = $rootScope.credentials;
+            $scope.connectionDefinition = $rootScope.credentials[0].connectionDefinition;
+        });
 
         $scope.loadUserSettings = function() {
             $scope.emitUserSettingLoading();
         };
+
+
+
+        $scope.showAdminSettings = function(){
+            $scope.emitAdminSettings();
+        }
 
         init();
     }];

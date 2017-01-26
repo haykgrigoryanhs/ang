@@ -8,16 +8,16 @@
     var PageController = ['$rootScope', '$scope', 'HelperService', function ($rootScope, $scope, HelperService) {
 
         function init() {
-
-            console.log("root scope", $rootScope);
-            console.log("scope", $scope);
-            // alert('init PageController');
-
-            $rootScope.credentials = HelperService.getCredentials();
-            $rootScope.isLoggedIn = true;
+            $rootScope.pending = false;
+            $rootScope.credentials = null;
+            $rootScope.isLoggedIn = false;
             $rootScope.inboxes = null;
-            HelperService.init();
         }
+
+        $scope.initCredentials = function (credentials) {
+            $rootScope.credentials = credentials.data.credentials;
+            $scope.$broadcast('initCredentials');
+        };
 
         $scope.show = function () {
             return false;
@@ -28,7 +28,6 @@
         };
 
         $scope.emitInboxLoading = function (id) {
-            console.log("Emit here from child object");
             $scope.$broadcast('showInboxes', { id: id });
         };
 

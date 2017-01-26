@@ -10,24 +10,10 @@
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li><a href="#" ng-click="selectI(null)">None</a></li>
 
-        <li ng-repeat="ISeries in definedISeries" ><a href="#" ng-click="selectI(ISeries)">{{ISeries.alias}}</a></li>
+        <li ng-repeat="ISeries in credentials" ><a href="#" ng-click="selectI(ISeries)">{{ISeries.definedISeries.alias}}</a></li>
     </ul>
 </div>
 
-<!--<div class="btn-group-vertical" data-toggle="buttons">-->
-    <!--<label class="btn active btn-default">-->
-        <!--<input name="cssPre1" id="css1" value="CSS" class="active" type="radio" data-ng-model="cssPre">None-->
-    <!--</label>-->
-    <!--<label class="btn btn-default">-->
-        <!--<input name="cssPre1" id="css2" value="LESS" type="radio" data-ng-model="cssPre">LESS-->
-    <!--</label>-->
-    <!--<label class="btn btn-default">-->
-        <!--<input name="cssPre1" id="css3" value="SASS" type="radio" checked="checked" data-ng-model="cssPre">SASS-->
-    <!--</label>-->
-    <!--<label class="btn btn-default">-->
-        <!--<input name="cssPre1" id="css4" value="SCSS" type="radio" data-ng-model="cssPre">SCSS-->
-    <!--</label>-->
-<!--</div>-->
 <div ng-show="showFolders">
     <h3><a href="#">Webdocs iSeries</a></h3>
     <div class="btn-group-vertical" role="group" aria-label="Asdasdas">

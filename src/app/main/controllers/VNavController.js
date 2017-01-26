@@ -12,14 +12,16 @@
 
         function init() {
             $scope.credentials  = $rootScope.credentials;
-            $scope.definedISeries = $rootScope.credentials.credentials[0].definedISeries;
-
         }
+
+        $scope.$on('initCredentials', function (events, args) {
+            $scope.credentials  = $rootScope.credentials;
+        });
 
         $scope.selectI = function(I){
             $scope.selectedI = I;
             if(I){
-                $scope.selectedIname = I.alias;
+                $scope.selectedIname = I.connectionDefinition.alias;
                 $scope.showFolders = true;
             }else{
                 $scope.selectedIname = 'None';

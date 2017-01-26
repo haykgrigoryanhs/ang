@@ -11,12 +11,17 @@
 
         function init() {
             $scope.credentials  = $rootScope.credentials;
-            $scope.definedISeries = $rootScope.credentials.credentials[0].definedISeries;
+            $scope.definedISeries = $rootScope.definedISeries;
 
         }
 
         $scope.logout = function () {
-          $rootScope.isLoggedIn = false;
+            AuthService.logout().then(function (resp) {
+                if(resp && resp.data.success){
+                    $rootScope.isLoggedIn = false;
+                }
+            });
+            $rootScope.isLoggedIn = false;
         };
 
 

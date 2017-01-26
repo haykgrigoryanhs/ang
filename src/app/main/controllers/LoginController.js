@@ -8,24 +8,34 @@
     var LoginController = ['$rootScope', '$scope', 'HelperService', 'AuthService', function ($rootScope, $scope, HelperService, AuthService) {
 
         function init() {
-            HelperService.init();
         }
 
         $scope.login = function () {
             var $data = {
                 password : "admin",
                 username : "admin"};
-            var response = AuthService.login($data);
-            if(response && response.success){
-                $rootScope.isLoggedIn = true;
-            }
+            AuthService.login($data).then(function (resp) {
+                $rootScope.pending = false;
+                if(resp && resp.data.success){
+                    HelperService.getCredentials().then(function (resp) {
+                        $rootScope.pending = false;
+                        $scope.initCredentials(resp);
+                        $rootScope.isLoggedIn = true;
+                    });
+                }
+            });
+
         };
 
         $scope.logout = function () {
-           var response =  AuthService.logout();
-            if(response && response.success){
-               $rootScope.isLoggedIn = false;
-           }
+           AuthService.logout().then(function (response) {
+               // $rootScope.pending = false;
+               if(response && response.data.success){
+                   $rootScope.isLoggedIn = false;
+               }
+
+           });
+
         };
 
         init();
