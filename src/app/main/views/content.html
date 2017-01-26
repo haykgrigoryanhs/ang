@@ -1,0 +1,17 @@
+<div ng-switch="contentType">
+    <div ng-switch-when="inboxList">
+        <div ng-repeat="inbox in inboxes">
+            <div><a href="#" ng-click="loadDocumentsList(inbox)">{{inbox.fsuseracc}}</a></div>
+        </div>
+    </div>
+
+    <div ng-switch-when="documentList">
+        <div ng-repeat="document in documentList" ng-click="loadDocumentDetails(document)">
+            <span>{{document.title}}</span>
+            <span>{{document.docId}}</span>
+        </div>
+    </div>
+    <div ng-switch-default>
+        <h2>Hello World</h2>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="HS">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="assets/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/login.css" rel="stylesheet">
+    <link href="assets/css/main-page.css" rel="stylesheet">
+    <link href="assets/css/vert-nav-bar.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div class="main height-all" ng-controller="PageController as pageCtrl">
+        <ng-include src ="'app/main/views/navbar.html'" ng-show="loggedIn()"></ng-include>
+        <div class="container-fluid height-all content" ng-show="loggedIn()">
+            <div class="row height-all">
+                <div class="col-md-2 vert-nav-bar height-all">
+                    <div ng-include src ="'app/main/views/vert-nav-bar.html'"  ng-controller="VNavController"></div>
+                </div>
+                <div class="col-md-10 main-page height-all">
+                    <div ng-include src ="'app/main/views/content.html'"  ng-controller="ContentController"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <div class="container-fluid login-container" ng-show="!loggedIn()">
+        <div class="row">
+            <div ng-include src ="'app/main/views/login.html'"></div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="assets/js/jquery-3.1.1.js"></script>
+<script src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="assets/js/ui-bootstrap-tpls-2.4.0.js"></script>
+
+<script src="assets/js/angular-cookies/angular-cookies.js"></script>
+<script src="assets/js/angular-sanitize/angular-sanitize.js"></script>
+<script src="assets/js/angular_page_visibility/js/page_visibility.js"></script>
+<script src="assets/js/angular-ui-select/dist/select.js"></script>
+<script src="assets/js/clipboard/dist/clipboard.min.js"></script>
+<script src="assets/js/ngstorage/ngstorage.min.js"></script>
+<script src="assets/js/angular-socket-io/socket.js"></script>
+
+
+
+
+
+<script src="app/index.js"></script>
+<script src="app/main/routes.js"></script>
+<script src="app/main/constants.js"></script>
+<script src="app/main/AuthInterceptor.js"></script>
+
+
+<script src="app/main/controllers/PageController.js"></script>
+<script src="app/main/controllers/NavController.js"></script>
+<script src="app/main/controllers/LoginController.js"></script>
+<script src="app/main/controllers/ContentController.js"></script>
+<script src="app/main/controllers/VNavController.js"></script>
+
+
+
+<script src="app/main/services/HelperService.js"></script>
+<script src="app/main/services/AuthService.js"></script>
+
+</body>
+</html>

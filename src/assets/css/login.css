@@ -1,0 +1,8 @@
+.login-container {
+    height: 100%;
+    /*background-color: blue;*/
+}
+.login-form-cont{
+    background-color: #1b6d85;
+    padding: 40px 20px;
+}

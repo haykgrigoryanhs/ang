@@ -1,0 +1,48 @@
+<div>
+    <h3><a href="#">Helpsystems Insite</a></h3>
+    <a href="#">Dashboard</a>
+</div>
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{selectedIname}}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" ng-click="selectI(null)">None</a></li>
+
+        <li ng-repeat="ISeries in definedISeries" ><a href="#" ng-click="selectI(ISeries)">{{ISeries.alias}}</a></li>
+    </ul>
+</div>
+
+<!--<div class="btn-group-vertical" data-toggle="buttons">-->
+    <!--<label class="btn active btn-default">-->
+        <!--<input name="cssPre1" id="css1" value="CSS" class="active" type="radio" data-ng-model="cssPre">None-->
+    <!--</label>-->
+    <!--<label class="btn btn-default">-->
+        <!--<input name="cssPre1" id="css2" value="LESS" type="radio" data-ng-model="cssPre">LESS-->
+    <!--</label>-->
+    <!--<label class="btn btn-default">-->
+        <!--<input name="cssPre1" id="css3" value="SASS" type="radio" checked="checked" data-ng-model="cssPre">SASS-->
+    <!--</label>-->
+    <!--<label class="btn btn-default">-->
+        <!--<input name="cssPre1" id="css4" value="SCSS" type="radio" data-ng-model="cssPre">SCSS-->
+    <!--</label>-->
+<!--</div>-->
+<div ng-show="showFolders">
+    <h3><a href="#">Webdocs iSeries</a></h3>
+    <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
+        <button type="button" class="btn btn-default">Home</button>
+        <button type="button" class="btn btn-default" ng-click="loadInboxes()">Inbox</button>
+        <button type="button" class="btn btn-default">Preferences</button>
+    </div>
+</div>
+<div>
+    <h3><a href="#">Server Settings</a></h3>
+    <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
+        <button type="button" class="btn btn-default">Getting started</button>
+        <button type="button" class="btn btn-default">Admin Settings</button>
+        <button type="button" class="btn btn-default">User Settings</button>
+        <button type="button" class="btn btn-default">About</button>
+    </div>
+</div>
+<!--<div
