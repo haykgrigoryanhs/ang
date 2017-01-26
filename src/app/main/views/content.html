@@ -11,6 +11,7 @@
             <span>{{document.docId}}</span>
         </div>
     </div>
+
     <div ng-switch-when="systemSettingsList">
         <h2>Admin Settings</h2>
         <hr>
@@ -94,6 +95,63 @@
             <ng-include src="'app/main/views/_logging.html'"></ng-include>
         </div>
     </div>
+
+    <div ng-switch-when="userSettingList">
+        <h1 class="user_setting">User Settings</h1>
+
+        <div class="panel-content landing-page">
+            <div class="link-wrapper btn configure-credential setting_button" ng-click="">
+                <div ng-click="loadUser">
+                    <h2 class="title">{{ userSettinglist[0].header }}</h2>
+                    <p class="description">{{ userSettinglist[0].desc }}</p>
+                    <i class="fa fa-chevron-circle-right"></i>
+                </div>
+            </div>
+
+            <div class="link-wrapper btn configure-credential setting_button" ng-click="loadProfilesList()">
+                <div ng-click="loadUser">
+                    <h2 class="title">{{ userSettinglist[1].header }}</h2>
+                    <p class="description">{{ userSettinglist[1].desc }}</p>
+                    <i class="fa fa-chevron-circle-right"></i>
+                </div>
+            </div>
+
+            <div class="link-wrapper btn configure-credential setting_button">
+                <div ng-click="loadUser">
+                    <h2 class="title">{{ userSettinglist[2].header }}</h2>
+                    <p class="description">{{ userSettinglist[2].desc }}</p>
+                    <i class="fa fa-chevron-circle-right"></i>
+                </div>
+            </div>
+        </div>
+        <!--<div ng-repeat="setting in settingList" ng-click="">-->
+            <!--<span>{{setting.title}}</span>-->
+            <!--<span>{{setting.docId}}</span>-->
+        <!--</div>-->
+    </div>
+
+    <div ng-switch-when="profileList">
+
+        <div class="profile_header">
+            <div class="left_side">
+                <div class="glyphicon glyphicon-refresh refresh_button"></div>
+            </div>
+            <div class="right_side">
+                <div ng-click="newProfilePage()" class="glyphicon glyphicon-plus btn-lg add_button"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="list-group profile_list">
+            <button ng-repeat="profile in profileList" class="list-group-item">{{profile.name}}</button>
+        </div>
+    </div>
+
+    <div ng-switch-when="newProfilePage">
+        <ng-include src="'./app/main/views/_new_profile_page.html'"></ng-include>
+    </div>
+
+
     <div ng-switch-default>
         <h2>Hello World</h2>
     </div>

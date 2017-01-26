@@ -33,11 +33,46 @@
             $scope.contentType = 'inboxList';
             console.log($scope.inboxes);
         });
+        
+        $scope.$on('showUserSettings', function(event, args) {
+            console.log("show User setting event");
+            $scope.contentType = 'userSettingList';
+            $scope.userSettinglist = [
+                {
+                    header: "Assigned Profiles",
+                    desc: "Assign a profile to each Product Connection you need to access."
+                },
+                {
+                    header: "Profiles",
+                    desc: "Manage your personal profiles."
+                },
+                {
+                    header: "Preferences",
+                    desc: "Manage your HelpSystems Insite settings."
+                }
+            ];
+            // $scope.userSettingsData = HelperService.getUserSettings();
+        });
 
         $scope.loadDocumentsList = function (data) {
             $scope.documentListData = HelperService.getInboxDocuments($scope.systemId, data.fsuseracc);
             $scope.documentList = $scope.documentListData.responses;
             $scope.contentType = 'documentList';
+        };
+        
+        $scope.loadProfilesList = function (data) {
+            $scope.profileListData = HelperService.getProfileList("", "");
+            $scope.profileList = $scope.profileListData.userProfiles;
+            $scope.contentType = 'profileList';
+        };
+
+        $scope.newProfilePage = function () {
+            $scope.contentType = 'newProfilePage';
+        };
+
+        $scope.saveProfile = function () {
+            //...
+            console.log("Save");
         };
 
 

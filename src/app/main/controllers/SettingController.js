@@ -1,17 +1,19 @@
-/**
- * Created by akaramya on 1/26/2017.
- */
+'use strict';
+
 (function (helpSystems) {
     var SettingController = ['$rootScope', '$scope', 'HelperService', 'AuthService', function ($rootScope, $scope, HelperService, AuthService) {
 
         function init() {
-            $scope.credentials  = $rootScope.credentials;
-            $scope.connectionDefinition = $rootScope.credentials.credentials[0].connectionDefinition;
+            HelperService.init();
         }
 
         $scope.showAdminSettings = function(){
             $scope.emitAdminSettings();
-        }
+        };
+
+        $scope.loadUserSettings = function() {
+            $scope.emitUserSettingLoading();
+        };
 
         init();
     }];

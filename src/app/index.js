@@ -4,8 +4,8 @@
 
 var API = {
     robotweb : 'http://localhost:3030/insite/robotweb/',
-    rjswd : 'http://localhost:3030/insite/rjswd/',
-}
+    rjswd : 'http://localhost:3030/insite/rjswd/'
+};
 
 
 var helpSystems = angular.module('HS', [

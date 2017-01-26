@@ -9,8 +9,8 @@
 
         function init() {
 
-            console.log($rootScope);
-            console.log($scope);
+            console.log("root scope", $rootScope);
+            console.log("scope", $scope);
             // alert('init PageController');
 
             $rootScope.credentials = HelperService.getCredentials();
@@ -28,8 +28,10 @@
         };
 
         $scope.emitInboxLoading = function (id) {
+            console.log("Emit here from child object");
             $scope.$broadcast('showInboxes', { id: id });
         };
+
 
         $scope.emitAdminSettings = function(){
             $scope.$broadcast('showAdminSettings');
@@ -38,6 +40,10 @@
         /*$scope.emitProductConnectionsList = function(){
             $scope.$broadcast('showProductConnectionsList');
         }*/
+
+        $scope.emitUserSettingLoading = function () {
+            $scope.$broadcast('showUserSettings');
+        };
 
 
 

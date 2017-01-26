@@ -15,6 +15,22 @@
             return {"dateCollected":1485361163108,"totalRecords":53,"currentRecord":0,"sentRecords":25,"truncatedResults":false,"responses":[{"systemId":"6","fsuseracc":"MY Inbox"},{"systemId":"6","fsuseracc":"Group00"},{"systemId":"6","fsuseracc":"A"},{"systemId":"6","fsuseracc":"My Routing Inbox 100"},{"systemId":"6","fsuseracc":"INBOXTEST00"},{"systemId":"6","fsuseracc":"INBOXTEST10"},{"systemId":"6","fsuseracc":"INBOXTEST20"},{"systemId":"6","fsuseracc":"INBOXTEST30"},{"systemId":"6","fsuseracc":"INBOXTEST40"},{"systemId":"6","fsuseracc":"INBOXTEST50"},{"systemId":"6","fsuseracc":"INBOXTEST60"},{"systemId":"6","fsuseracc":"INBOXTEST70"},{"systemId":"6","fsuseracc":"INBOXTEST80"},{"systemId":"6","fsuseracc":"INBOXTEST90"},{"systemId":"6","fsuseracc":"INBOXTEST05"},{"systemId":"6","fsuseracc":"INBOXTEST15"},{"systemId":"6","fsuseracc":"INBOXTEST25"},{"systemId":"6","fsuseracc":"INBOXTEST35"},{"systemId":"6","fsuseracc":"INBOXTEST45"},{"systemId":"6","fsuseracc":"INBOXTEST55"},{"systemId":"6","fsuseracc":"INBOXTEST65"},{"systemId":"6","fsuseracc":"INBOXTEST75"},{"systemId":"6","fsuseracc":"INBOXTEST85"},{"systemId":"6","fsuseracc":"INBOXTEST95"},{"systemId":"6","fsuseracc":"TEST"}]};
 
         };
+        
+        Helper.getUserSettings = function (params, id) {
+
+            // return $http.get(API.rjswd + 'inboxes/'+id, params);
+            
+            return {};
+
+        };
+
+        Helper.getProfileList = function (params, id) {
+
+            // return $http.get(API.rjswd + 'inboxes/'+id, params);
+
+            return {"userProfiles":[{"id":3,"name":"MIKEE","username":"MIKEE","removed":false,"hasPassword":true,"connections":[],"iseries":[]},{"id":4,"name":"TEST","username":"TEST","removed":false,"hasPassword":true,"connections":[],"iseries":[]},{"id":2,"name":"User00","username":"User00","removed":false,"hasPassword":true,"connections":[],"iseries":[]}],"totalRecords":3,"currentRecord":1,"sentRecords":3,"dateCollected":1485428445158};
+
+        };
 
         Helper.getInboxDocuments = function (systemId, fsuseracc) {
 

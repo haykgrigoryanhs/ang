@@ -24,4 +24,78 @@
 .form-item-body {
     display: inline-block;
     float: right;
+    background-color: rgba(114, 83, 57, 0.07);
+}
+
+.user_setting {
+    border-bottom: 2px solid #cccccc; height: 50px;
+}
+
+.setting_button {
+    display: block;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+}
+
+.setting_button:hover {
+    background-color: #00b3ee;
+    color: #FFFFFF;
+}
+
+.profile_list {
+
+}
+
+.profile_header {
+    height: 50px;
+}
+
+.left_side {
+    height: 50px;
+    width: 150px;
+    float: left;
+}
+
+.right_side {
+    height: 50px;
+    width: 150px;
+    float: right;
+}
+
+.add_profile {
+
+}
+
+.add_button, .refresh_button {
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 0.8;
+    border: 1px solid #cccccc;
+}
+
+.profile_inputs {
+    width: 1100px !important;
+}
+
+.profile_row {
+    height: 40px;
+    margin-top: 10px;
+}
+
+.name {
+    float: left;
+}
+
+.profile_inputs {
+    float: right;
+}
+
+.save_button {
+    font-size: 30px;
+    float: right;
+    height: 40px;
+    cursor: pointer;
+}
+.clear {
+    clear: both;
 }

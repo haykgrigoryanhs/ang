@@ -31,6 +31,7 @@
         $scope.loadInboxes = function () {
 
             var id = $scope.selectedI.id;
+            console.log("VNav cntr id", id);
             $scope.emitInboxLoading(id);
 
         };
