@@ -47,6 +47,47 @@
             console.log($scope.documentDetails);
         };
 
+        $scope.$on('showAdminSettings', function (events) {
+            $scope.contentType = 'systemSettingsList';
+        });
+
+        $scope.showProductConnectionsList = function () {
+            $scope.connectionDefinition = $rootScope.credentials.credentials[0].definedISeries;
+            $scope.contentType = 'product_connections';
+        };
+
+        $scope.addNewConnection = function() {
+            $scope.contentType = 'add_connection';
+        }
+
+        $scope.connectionBtnClick = function(save) {
+            if(save){
+
+            }
+            $scope.contentType = 'product_connections';
+        }
+
+        $scope.editAuthSettings = function () {
+            $scope.contentType = 'auth_settings';
+        }
+
+        $scope.authBtnClick = function(save) {
+            if(save){
+
+            }
+            $scope.contentType = 'systemSettingsList';
+        }
+
+        $scope.editLoggingSettings = function () {
+            $scope.contentType = 'logging_settings';
+        }
+
+        $scope.loggingBtnClick = function(save) {
+            if(save){
+
+            }
+            $scope.contentType = 'systemSettingsList';
+        }
 
         init();
     }];

@@ -31,6 +31,14 @@
             $scope.$broadcast('showInboxes', { id: id });
         };
 
+        $scope.emitAdminSettings = function(){
+            $scope.$broadcast('showAdminSettings');
+        }
+
+        /*$scope.emitProductConnectionsList = function(){
+            $scope.$broadcast('showProductConnectionsList');
+        }*/
+
 
 
         init();

@@ -11,6 +11,89 @@
             <span>{{document.docId}}</span>
         </div>
     </div>
+    <div ng-switch-when="systemSettingsList">
+        <h2>Admin Settings</h2>
+        <hr>
+        <div class="btn btn-default btn-lg system_setting" ng-click="showProductConnectionsList()">
+            <h3 class="setting_header">Product Connections</h3>
+            <p class="setting_desc">Connect HelpSystems Insite to systems that have the products installed.</p>
+        </div>
+        <div class="btn btn-default btn-lg system_setting"  ng-click="editAuthSettings()">
+            <h3 class="setting_header">Authentication</h3>
+            <p class="setting_desc">Specify how to authenticate HelpSystems Insite users.</p>
+        </div>
+        <div class="btn btn-default btn-lg system_setting" ng-click="editLoggingSettings()">
+            <h3 class="setting_header">Logging</h3>
+            <p class="setting_desc">Configure the logging level for HelpSystems Insite.</p>
+        </div>
+    </div>
+
+    <div ng-switch-when="product_connections">
+        <h2>Product Connections</h2>
+        <hr>
+        <div class="add_connection_panel">
+            <button class="btn btn-success pull-right" ng-click="addNewConnection()">
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Add
+            </button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" /></th>
+                    <th>Alias</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="prod_conn in connectionDefinition">
+                    <th class="col-md-1">
+                        <input type="checkbox" />
+                    </th>
+                    <td class="col-md-12"><span>{{prod_conn.alias}}</span></td>
+                    <td class="col-md-1">
+                        <span class="glyphicon glyphicon-option-vertical"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-switch-when="add_connection">
+        <h2>New Connections</h2>
+        <hr>
+        <div class="buttons_panel">
+            <button class="btn btn-success pull-right" ng-click="connectionBtnClick(true)">Save</button>
+            <button class="btn btn-default pull-right" ng-click="connectionBtnClick()">Cancel</button>
+        </div>
+        <div class="form_container">
+            <ng-include src="'app/main/views/_new_connection.html'"></ng-include>
+        </div>
+    </div>
+
+    <div ng-switch-when="auth_settings">
+        <h2>Authentication</h2>
+        <hr>
+        <div class="buttons_panel">
+            <button class="btn btn-success pull-right" ng-click="authBtnClick(true)">Save</button>
+            <button class="btn btn-default pull-right" ng-click="authBtnClick()">Cancel</button>
+        </div>
+        <div class="form_container">
+            <ng-include src="'app/main/views/_auth_settings.html'"></ng-include>
+        </div>
+    </div>
+
+    <div ng-switch-when="logging_settings">
+        <h2>Logging</h2>
+        <hr>
+        <div class="buttons_panel">
+            <button class="btn btn-success pull-right" ng-click="loggingBtnClick(true)">Save</button>
+            <button class="btn btn-default pull-right" ng-click="loggingBtnClick()">Cancel</button>
+        </div>
+        <div class="form_container">
+            <ng-include src="'app/main/views/_logging.html'"></ng-include>
+        </div>
+    </div>
     <div ng-switch-default>
         <h2>Hello World</h2>
     </div>
