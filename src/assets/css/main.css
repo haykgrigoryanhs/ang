@@ -10,3 +10,14 @@ html, body, div.height-all{
     top: 370px;
     left: 800px;
 }
+.pending img{
+    padding-left: 30px;
+}
+
+.mouse-hover{
+     cursor: pointer;
+ }
+
+.mouse-hover:hover{
+    background-color: #9acfea;
+}

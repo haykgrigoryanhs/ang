@@ -8,13 +8,14 @@
     var LoginController = ['$rootScope', '$scope', 'HelperService', 'AuthService', function ($rootScope, $scope, HelperService, AuthService) {
 
         function init() {
+            $scope.loginFormData = {};
         }
 
         $scope.login = function () {
-            var $data = {
-                password : "admin",
-                username : "admin"};
-            AuthService.login($data).then(function (resp) {
+            // var $data = {
+            //     password : "admin",
+            //     username : "admin"};
+            AuthService.login($scope.loginFormData).then(function (resp) {
                 $rootScope.pending = false;
                 if(resp && resp.data.success){
                     HelperService.getCredentials().then(function (resp) {
@@ -23,6 +24,8 @@
                         $rootScope.isLoggedIn = true;
                     });
                 }
+            },function (resp) {
+
             });
 
         };

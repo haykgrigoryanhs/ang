@@ -1,38 +1,41 @@
 <div class="form-item-container">
     <label for="productType" class="form-item-label">Connection Type:</label>
     <div class="form-item-body col-md-6">
-        <select class="form-select form-control productType" name="productType" id="productType">
-            <option value="1" selected="true"></option>
+        <select class="form-select form-control productType" name="productType" id="productType"  ng-model="productFormData.library">
+            <option value="1" selected="true">IBM i Connection</option>
+            <option value="2">Automate BPA Server</option>
+            <option value="4">WebDocs for IBMi</option>
         </select>
+
     </div>
 </div>
 <div class="form-item-container">
     <label for="address" class="form-item-label">Address:</label>
     <div class="form-item-body col-md-6">
-        <input type="text" class="form-select form-control" name="address" id="address" value="">
+        <input type="text" class="form-select form-control" name="address" id="address" value="" ng-model="productFormData.address">
     </div>
 </div>
 <div class="form-item-container">
     <label for="alias" class="form-item-label">Alias:</label>
     <div class="form-item-body col-md-6">
-        <input type="text" class="form-select form-control" name="alias" id="alias" value="">
+        <input type="text" class="form-select form-control" name="alias" id="alias" value=""  ng-model="productFormData.alias">
     </div>
 </div>
 <div class="form-item-container">
     <label for="username" class="form-item-label">Username:</label>
     <div class="form-item-body col-md-6">
-        <input type="text" class="form-select form-control" name="username" id="username" value="">
+        <input type="text" class="form-select form-control" name="username" id="username" value=""  ng-model="productFormData.username">
     </div>
 </div>
 <div class="form-item-container">
     <label for="password" class="form-item-label">Password:</label>
     <div class="form-item-body col-md-6">
-        <input type="text" class="form-select form-control" name="password" id="password" value="">
+        <input type="text" class="form-select form-control" name="password" id="password" value="" ng-model="productFormData.password">
     </div>
 </div>
 <div class="form-item-container">
     <label for="confirm_password" class="form-item-label">Confirm Password:</label>
     <div class="form-item-body col-md-6">
-        <input type="text" class="form-select form-control" name="confirm_password" id="confirm_password" value="">
+        <input type="text" class="form-select form-control" name="confirm_password" id="confirm_password" value="" ng-model="productFormData.passwordc">
     </div>
 </div>

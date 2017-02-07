@@ -6,21 +6,35 @@
 
 
         Helper.getInboxesAccess = function (params, id) {
+            $rootScope.pending = true;
             return $http.get(API.rjswd + 'inboxes/access/'+id);
         };
 
         Helper.getInboxes = function (params, id) {
-            $rootScope.pending = true;
-            if(id == 6){
-                var data =  {"dateCollected":1485361163108,"totalRecords":53,"currentRecord":0,"sentRecords":25,"truncatedResults":false,"responses":[{"systemId":"6","fsuseracc":"MY Inbox"},{"systemId":"6","fsuseracc":"Group00"},{"systemId":"6","fsuseracc":"A"},{"systemId":"6","fsuseracc":"My Routing Inbox 100"},{"systemId":"6","fsuseracc":"INBOXTEST00"},{"systemId":"6","fsuseracc":"INBOXTEST10"},{"systemId":"6","fsuseracc":"INBOXTEST20"},{"systemId":"6","fsuseracc":"INBOXTEST30"},{"systemId":"6","fsuseracc":"INBOXTEST40"},{"systemId":"6","fsuseracc":"INBOXTEST50"},{"systemId":"6","fsuseracc":"INBOXTEST60"},{"systemId":"6","fsuseracc":"INBOXTEST70"},{"systemId":"6","fsuseracc":"INBOXTEST80"},{"systemId":"6","fsuseracc":"INBOXTEST90"},{"systemId":"6","fsuseracc":"INBOXTEST05"},{"systemId":"6","fsuseracc":"INBOXTEST15"},{"systemId":"6","fsuseracc":"INBOXTEST25"},{"systemId":"6","fsuseracc":"INBOXTEST35"},{"systemId":"6","fsuseracc":"INBOXTEST45"},{"systemId":"6","fsuseracc":"INBOXTEST55"},{"systemId":"6","fsuseracc":"INBOXTEST65"},{"systemId":"6","fsuseracc":"INBOXTEST75"},{"systemId":"6","fsuseracc":"INBOXTEST85"},{"systemId":"6","fsuseracc":"INBOXTEST95"},{"systemId":"6","fsuseracc":"TEST"}]};
-            }else{
-                var data =  {"dateCollected":1485428963491,"totalRecords":3,"currentRecord":0,"sentRecords":3,"truncatedResults":false,"responses":[{"systemId":"7","fsuseracc":"MY Inbox"},{"systemId":"7","fsuseracc":"TEST2"},{"systemId":"7","fsuseracc":"URMAP"}]};
-            }
-            return data;
-            // return $http.get(API.rjswd + 'inboxes/'+id, {params: params});
+            // $rootScope.pending = true;
+            // if(id == 6){
+            //     var data =  {"dateCollected":1485361163108,"totalRecords":53,"currentRecord":0,"sentRecords":25,"truncatedResults":false,"responses":[{"systemId":"6","fsuseracc":"MY Inbox"},{"systemId":"6","fsuseracc":"Group00"},{"systemId":"6","fsuseracc":"A"},{"systemId":"6","fsuseracc":"My Routing Inbox 100"},{"systemId":"6","fsuseracc":"INBOXTEST00"},{"systemId":"6","fsuseracc":"INBOXTEST10"},{"systemId":"6","fsuseracc":"INBOXTEST20"},{"systemId":"6","fsuseracc":"INBOXTEST30"},{"systemId":"6","fsuseracc":"INBOXTEST40"},{"systemId":"6","fsuseracc":"INBOXTEST50"},{"systemId":"6","fsuseracc":"INBOXTEST60"},{"systemId":"6","fsuseracc":"INBOXTEST70"},{"systemId":"6","fsuseracc":"INBOXTEST80"},{"systemId":"6","fsuseracc":"INBOXTEST90"},{"systemId":"6","fsuseracc":"INBOXTEST05"},{"systemId":"6","fsuseracc":"INBOXTEST15"},{"systemId":"6","fsuseracc":"INBOXTEST25"},{"systemId":"6","fsuseracc":"INBOXTEST35"},{"systemId":"6","fsuseracc":"INBOXTEST45"},{"systemId":"6","fsuseracc":"INBOXTEST55"},{"systemId":"6","fsuseracc":"INBOXTEST65"},{"systemId":"6","fsuseracc":"INBOXTEST75"},{"systemId":"6","fsuseracc":"INBOXTEST85"},{"systemId":"6","fsuseracc":"INBOXTEST95"},{"systemId":"6","fsuseracc":"TEST"}]};
+            // }else{
+            //     var data =  {"dateCollected":1485428963491,"totalRecords":3,"currentRecord":0,"sentRecords":3,"truncatedResults":false,"responses":[{"systemId":"7","fsuseracc":"MY Inbox"},{"systemId":"7","fsuseracc":"TEST2"},{"systemId":"7","fsuseracc":"URMAP"}]};
+            // }
+            // return data;
+            return $http.get(API.rjswd + 'inboxes/'+id, {params: params});
         };
+
+        Helper.saveUser = function (params) {
+            $rootScope.pending = true;
+            return $http.post(API.robotweb + 'user_profile/', params);
+        };
+
+        Helper.saveConnection = function (params) {
+            $rootScope.pending = true;
+            return $http.post(API.robotweb + 'defined_iseries/', params);
+        };
+
+
         
         Helper.getUserSettings = function (params, id) {
+            $rootScope.pending = true;
 
             // return $http.get(API.rjswd + 'inboxes/'+id, params);
             
@@ -29,10 +43,10 @@
         };
 
         Helper.getProfileList = function (params, id) {
+            $rootScope.pending = true;
+            return $http.get(API.robotweb + 'user_profiles/');
 
-            // return $http.get(API.rjswd + 'inboxes/'+id, params);
-
-            return {"userProfiles":[{"id":3,"name":"MIKEE","username":"MIKEE","removed":false,"hasPassword":true,"connections":[],"iseries":[]},{"id":4,"name":"TEST","username":"TEST","removed":false,"hasPassword":true,"connections":[],"iseries":[]},{"id":2,"name":"User00","username":"User00","removed":false,"hasPassword":true,"connections":[],"iseries":[]}],"totalRecords":3,"currentRecord":1,"sentRecords":3,"dateCollected":1485428445158};
+            // return {"userProfiles":[{"id":3,"name":"MIKEE","username":"MIKEE","removed":false,"hasPassword":true,"connections":[],"iseries":[]},{"id":4,"name":"TEST","username":"TEST","removed":false,"hasPassword":true,"connections":[],"iseries":[]},{"id":2,"name":"User00","username":"User00","removed":false,"hasPassword":true,"connections":[],"iseries":[]}],"totalRecords":3,"currentRecord":1,"sentRecords":3,"dateCollected":1485428445158};
 
         };
 

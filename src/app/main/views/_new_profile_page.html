@@ -1,26 +1,29 @@
-<div class="save_button glyphicon glyphicon-saved" ng-click="saveProfile()"></div>
+<div class="buttons_panel">
+    <button class="btn btn-success pull-right" ng-click="saveProfile()">Save</button>
+    <button class="btn btn-default pull-right" ng-click="closeProfile()">Cancel</button>
+</div>
 <div class="clear"></div>
 
 <div class="profile_row">
     <span class="name">Alias</span>
-    <input type="text" class="form-control profile_inputs" aria-describedby="basic-addon1">
+    <input type="text" class="form-control profile_inputs" aria-describedby="basic-addon1" ng-model="userFormData.alias">
     <div class="clear"></div>
 </div>
 
 <div class="profile_row">
     <span class="name">User Name</span>
-    <input type="text" class="form-control profile_inputs" aria-describedby="basic-addon1">
+    <input type="text" class="form-control profile_inputs" aria-describedby="basic-addon1" ng-model="userFormData.username">
     <div class="clear"></div>
 </div>
 
 <div class="profile_row">
     <span class="name">Password</span>
-    <input type="password" class="form-control profile_inputs" aria-describedby="basic-addon1">
+    <input type="password" class="form-control profile_inputs" aria-describedby="basic-addon1" ng-model="userFormData.password">
     <div class="clear"></div>
 </div>
 
 <div class="profile_row">
     <span class="name">Confirm Password</span>
-    <input type="password" class="form-control profile_inputs" aria-describedby="basic-addon1">
+    <input type="password" class="form-control profile_inputs" aria-describedby="basic-addon1" ng-model="userFormData.confirm">
     <div class="clear"></div>
 </div>

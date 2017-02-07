@@ -2,34 +2,44 @@
     <h3><a href="#">Helpsystems Insite</a></h3>
     <a href="#">Dashboard</a>
 </div>
-<div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        {{selectedIname}}
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#" ng-click="selectI(null)">None</a></li>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{selectedIname}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#" ng-click="selectI(null)">None</a></li>
 
-        <li ng-repeat="ISeries in credentials" ><a href="#" ng-click="selectI(ISeries)">{{ISeries.definedISeries.alias}}</a></li>
-    </ul>
-</div>
-
-<div ng-show="showFolders">
-    <h3><a href="#">Webdocs iSeries</a></h3>
-    <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
-        <button type="button" class="btn btn-default">Home</button>
-        <button type="button" class="btn btn-default" ng-click="loadInboxes()">Inbox</button>
-        <button type="button" class="btn btn-default">Preferences</button>
+                <li ng-repeat="ISeries in credentials" ><a href="#" ng-click="selectI(ISeries)">{{ISeries.definedISeries.alias}}</a></li>
+            </ul>
+        </div>
+        <div ng-show="showFolders">
+            <h3><a href="#">Webdocs iSeries</a></h3>
+            <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
+                <button type="button" class="btn btn-default">Home</button>
+                <button type="button" class="btn btn-default" ng-click="loadInboxes()">Inbox</button>
+                <button type="button" class="btn btn-default">Preferences</button>
+            </div>
+        </div>
     </div>
 </div>
-<div ng-controller="SettingController">
-    <h3><a href="#">Server Settings</a></h3>
-    <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
-        <button type="button" class="btn btn-default">Getting started</button>
 
-        <button type="button" class="btn btn-default" ng-click="showAdminSettings()">Admin Settings</button>
-        <button type="button" class="btn btn-default" ng-click="loadUserSettings()">User Settings</button>
-        <button type="button" class="btn btn-default">About</button>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-controller="SettingController">
+            <h3><a href="#">Server Settings</a></h3>
+            <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
+                <button type="button" class="btn btn-default">Getting started</button>
+
+                <button type="button" class="btn btn-default" ng-click="showAdminSettings()">Admin Settings</button>
+                <button type="button" class="btn btn-default" ng-click="loadUserSettings()">User Settings</button>
+                <button type="button" class="btn btn-default">About</button>
+            </div>
+        </div>
     </div>
 </div>
+
+
 <!--<div

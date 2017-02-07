@@ -1,15 +1,17 @@
 <div ng-switch="contentType">
     <div ng-switch-when="inboxList">
-        <div ng-repeat="inbox in inboxes">
-            <div><a href="#" ng-click="loadDocumentsList(inbox)">{{inbox.fsuseracc}}</a></div>
-        </div>
+            <ul class="list-group">
+                <li class="list-group-item mouse-hover" ng-repeat="inbox in inboxes" ng-click="loadDocumentsList(inbox)">{{inbox.fsuseracc}}</li>
+            </ul>
     </div>
 
     <div ng-switch-when="documentList">
-        <div ng-repeat="document in documentList" ng-click="loadDocumentDetails(document)">
-            <span>{{document.title}}</span>
-            <span>{{document.docId}}</span>
-        </div>
+        <ul class="list-group">
+            <li class="list-group-item mouse-hover" ng-repeat="document in documentList" ng-click="loadDocumentDetails(document)">
+                <span>{{document.title}}</span>
+                <span>{{document.docId}}</span>
+            </li>
+        </ul>
     </div>
 
     <div ng-switch-when="systemSettingsList">
@@ -64,8 +66,8 @@
         <h2>New Connections</h2>
         <hr>
         <div class="buttons_panel">
-            <button class="btn btn-success pull-right" ng-click="connectionBtnClick(true)">Save</button>
-            <button class="btn btn-default pull-right" ng-click="connectionBtnClick()">Cancel</button>
+            <button class="btn btn-success pull-right" ng-click="saveConnection()">Save</button>
+            <button class="btn btn-default pull-right" ng-click="closeConnection()">Cancel</button>
         </div>
         <div class="form_container">
             <ng-include src="'app/main/views/_new_connection.html'"></ng-include>
@@ -134,12 +136,16 @@
     <div ng-switch-when="profileList">
 
         <div class="profile_header">
-            <div class="left_side">
-                <div class="glyphicon glyphicon-refresh refresh_button"></div>
+            <div class="buttons_panel">
+                <button class="btn btn-success pull-right" ng-click="loadProfilesList()">Refresh</button>
+                <button class="btn btn-default pull-right" ng-click="newProfilePage()">Add</button>
             </div>
-            <div class="right_side">
-                <div ng-click="newProfilePage()" class="glyphicon glyphicon-plus btn-lg add_button"></div>
-            </div>
+            <!--<div class="left_side">-->
+                <!--<div class="glyphicon glyphicon-refresh refresh_button" ng-click="loadProfilesList()"></div>-->
+            <!--</div>-->
+            <!--<div class="right_side">-->
+                <!--<div ng-click="newProfilePage()" class="glyphicon glyphicon-plus btn-lg add_button"></div>-->
+            <!--</div>-->
         </div>
         <div class="clear"></div>
 

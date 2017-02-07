@@ -15,34 +15,37 @@
 
             $scope.systemId = null;
             $scope.contentType = false;
+            $scope.userFormData = {};
+            $scope.productFormData = {};
         }
 
 
 
         $scope.$on('showInboxes', function (events, args) {
             var paras = {
-                // $top:25,
-                // $skip:0,
+                $top:25,
+                $skip:0,
                 $direction:0,
-                // $orderby:null
+                $orderby: ''
             };
             $scope.systemId = args.id;
 
-            // HelperService.getInboxesAccess({}, $scope.systemId).then(function (resp) {
-            //     if(resp.data.access){
-            //         HelperService.getInboxes(paras, $scope.systemId).then(function () {
-            //             $scope.inboxes = data.responses;
-            //             $scope.contentType = 'inboxList';
-            //         });
-            //     }
-            // });
+            HelperService.getInboxesAccess({}, $scope.systemId).then(function (resp) {
+                if(resp.data.access){
+                    HelperService.getInboxes(paras, $scope.systemId).then(function (resp) {
+                        $scope.inboxes = resp.data.responses;
+                        $rootScope.pending = false;
+                        $scope.contentType = 'inboxList';
+                    });
+                }
+            });
 
-           var data =  HelperService.getInboxes(paras, $scope.systemId);
-            if(data){
-                $rootScope.pending = false;
-            }
-            $scope.inboxes = data.responses;
-            $scope.contentType = 'inboxList';
+           // var data =  HelperService.getInboxes(paras, $scope.systemId);
+           //  if(data){
+           //      $rootScope.pending = false;
+           //  }
+           //  $scope.inboxes = data.responses;
+           //  $scope.contentType = 'inboxList';
         });
         
         $scope.$on('showUserSettings', function(event, args) {
@@ -75,9 +78,13 @@
         };
         
         $scope.loadProfilesList = function (data) {
-            $scope.profileListData = HelperService.getProfileList("", "");
-            $scope.profileList = $scope.profileListData.userProfiles;
-            $scope.contentType = 'profileList';
+            HelperService.getProfileList().then(function (resp) {
+                $scope.profileListData = resp.data;
+                $scope.profileList = $scope.profileListData.userProfiles;
+                $scope.contentType = 'profileList';
+                $rootScope.pending = false;
+            });
+
         };
 
         $scope.newProfilePage = function () {
@@ -85,9 +92,25 @@
         };
 
         $scope.saveProfile = function () {
-            //...
-            console.log("Save");
+
+            var formData = {
+                name: $scope.userFormData.alias,
+                username: $scope.userFormData.username,
+                password: $scope.userFormData.password,
+            }
+
+
+            HelperService.saveUser(formData).then(function (resp) {
+                $scope.userFormData = {};
+                $rootScope.pending = false;
+                $scope.loadProfilesList();
+                // $scope.contentType = 'userSettingList';
+            });
         };
+
+        $scope.closeProfile = function () {
+            $scope.loadProfilesList();
+        }
 
 
         $scope.loadDocumentDetails = function (data) {
@@ -95,9 +118,11 @@
                 $rootScope.pending = false;
                 $scope.documentDetails = resp.data;
 
-
                 $scope.data = [
                     {
+                        label: 'Title',
+                        val: $scope.documentDetails.docDetails.title,
+                    },{
                         label: 'Doc path',
                         val: $scope.documentDetails.docDetails.docpath,
                     },
@@ -107,37 +132,7 @@
                     },{
                         label: 'Doc type',
                         val: $scope.documentDetails.docDetails.doctype,
-                    },{
-                        label: 'Keyword 1',
-                        val: $scope.documentDetails.docDetails.keyword1,
-                    },{
-                        label: 'Keyword 2',
-                        val: $scope.documentDetails.docDetails.keyword2,
-                    },{
-                        label: 'Keyword 3',
-                        val: $scope.documentDetails.docDetails.keyword3,
-                    },{
-                        label: 'Keyword 4',
-                        val: $scope.documentDetails.docDetails.keyword4,
-                    },{
-                        label: 'Keyword 5',
-                        val: $scope.documentDetails.docDetails.keyword5,
-                    },{
-                        label: 'Keyword 6',
-                        val: $scope.documentDetails.docDetails.keyword6,
-                    },{
-                        label: 'Keyword 7',
-                        val: $scope.documentDetails.docDetails.keyword7,
-                    },{
-                        label: 'Keyword 8',
-                        val: $scope.documentDetails.docDetails.keyword8,
-                    },{
-                        label: 'Keyword 9',
-                        val: $scope.documentDetails.docDetails.keyword9,
-                    },{
-                        label: 'Keyword 10',
-                        val: $scope.documentDetails.docDetails.keyword10,
-                    },
+                    }
                 ];
                 $scope.contentType = 'documentDetails';
             });
@@ -155,36 +150,57 @@
 
         $scope.addNewConnection = function() {
             $scope.contentType = 'add_connection';
-        }
+        };
 
-        $scope.connectionBtnClick = function(save) {
-            if(save){
+        $scope.closeConnection = function () {
+            $scope.showProductConnectionsList();
+        };
 
-            }
-            $scope.contentType = 'product_connections';
-        }
+        $scope.saveConnection = function() {
+            var formData = {
+                address: $scope.productFormData.address,
+                alias: $scope.productFormData.alias,
+                library: $scope.productFormData.library,
+                password: $scope.productFormData.password,
+                port: '',
+                productType: 1,
+                username: $scope.productFormData.username
+            };
+
+            HelperService.saveConnection(formData).then(function (resp) {
+                $scope.productFormData = {};
+
+                $rootScope.pending = false;
+                $scope.contentType = 'product_connections';
+            }, function (resp) {
+                $scope.productFormData = {};
+
+                $rootScope.pending = false;
+                $scope.contentType = 'product_connections';
+            });
+        };
 
         $scope.editAuthSettings = function () {
             $scope.contentType = 'auth_settings';
-        }
+        };
 
         $scope.authBtnClick = function(save) {
             if(save){
 
             }
             $scope.contentType = 'systemSettingsList';
-        }
+        };
 
         $scope.editLoggingSettings = function () {
             $scope.contentType = 'logging_settings';
-        }
+        };
 
         $scope.loggingBtnClick = function(save) {
             if(save){
 
             }
             $scope.contentType = 'systemSettingsList';
-        }
+        };
 
         init();
     }];
