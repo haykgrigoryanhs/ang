@@ -133,7 +133,6 @@
         <!--</div>-->
     </div>
 
-    <div ng-switch-when="profileList">
 
         <div class="profile_header">
             <div class="buttons_panel">
@@ -148,10 +147,8 @@
             <!--</div>-->
         </div>
         <div class="clear"></div>
-
-        <div class="list-group profile_list">
-            <button ng-repeat="profile in profileList" class="list-group-item">{{profile.name}}</button>
-        </div>
+        <!--<profile-list data="profileList"></profile-list>-->
+        <div class="profile-list" data="profileList" columns-overflow-length="columnsOverflowLength"></div>
     </div>
 
     <div ng-switch-when="newProfilePage">

@@ -21,3 +21,58 @@ html, body, div.height-all{
 .mouse-hover:hover{
     background-color: #9acfea;
 }
+
+
+/************************** profile list table******************/
+
+.user_profile_list {
+    width: 640px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.user_profile_row {
+    height: 38px;
+    min-width: 640px; /* increase .profile_row width with 174px per one nested div */
+}
+
+.user_profile_row .profile_cell {
+    height: 38px;
+    display: inline-block;
+    border: 1px solid #DDDDDD;
+    width: 173px; /* 174/175 px cell width with border*/
+}
+.user_profile_row .remove_left_border {
+    border-left: 0;
+}
+
+/*.user_profile_row:hover {*/
+    /*cursor: pointer;*/
+    /*background-color: #ebebeb;*/
+/*}*/
+.user_profile_list span {
+    font-family: Calibri;
+}
+
+.header span {
+    font-weight: bold;
+}
+
+.user_profile_row .actions {
+    width: 58px;
+}
+
+.user_profile_row .id {
+    width: 58px; /* 660pc ID cell width with border*/
+}
+
+.row_header_text {
+    height: 18px;
+    padding: 10px 15px;
+    display: block;
+}
+
+.clear {
+    clear: both;
+}

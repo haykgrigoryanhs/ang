@@ -1,0 +1,41 @@
+<div class="user_profile_list">
+    <div class="user_profile_row header">
+        <div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" ng-repeat="(key, value) in profileList.structure.columns">
+            <span class="row_header_text">{{ value }}</span>
+        </div>
+        <!--<div class="profile_cell actions"><span class="row_header_text">::</span></div>-->
+    </div>
+    <div class="user_profile_row" ng-repeat="profile in profileList.data">
+        <div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
+            <span class="row_header_text">{{ profile[key] }}</span>
+        </div>
+        <div class="profile_cell actions"><span class="row_header_text">::
+            <!--<action-list data="profile" profile-id="profile.id"></action-list>-->
+            <!--<profile-detail data="profile"></profile-detail>-->
+        </span></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<!--<div class="user_profile_list">-->
+<!--<div class="user_profile_row header" ng-style="{width: columnsOverflowLength === 0 ? '637px' : 637 + columnsOverflowLength * 174 + 'px'}">-->
+<!--<div ng-repeat="(key, value) in profileList.structure.columns">-->
+<!--<div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" class="profile_cell"><span class="row_header_text">{{ value }}</span></div>-->
+<!--</div>-->
+<!--<div class="profile_cell actions"><span class="row_header_text"></span></div>-->
+<!--</div>-->
+<!--<div class="clear"></div>-->
+<!--<div class="user_profile_row" ng-repeat="profile in profileList.data" ng-style="{width: columnsOverflowLength === 0 ? '637px' : 637 + columnsOverflowLength * 174 + 'px'}">-->
+<!--<div ng-repeat="(key, value) in profileList.structure.columns">-->
+<!--<div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" class="profile_cell"><span class="row_header_text">{{ profile[key] }}</span></div>-->
+<!--</div>-->
+<!--<div class="profile_cell actions"><span class="row_header_text"></span></div>-->
+<!--</div>-->
+<!--<div class="clear"></div>-->
+<!--</div>-->
+
+
+<!--<div class="phone_row" ng-repeat="profile in profileList.data">-->
+<!--<a class="list-group-item phone_desc">{{profile.name}}</a>-->
+<!--</div>-->

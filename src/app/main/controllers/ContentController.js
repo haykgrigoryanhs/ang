@@ -78,12 +78,30 @@
         };
         
         $scope.loadProfilesList = function (data) {
-            HelperService.getProfileList().then(function (resp) {
-                $scope.profileListData = resp.data;
-                $scope.profileList = $scope.profileListData.userProfiles;
-                $scope.contentType = 'profileList';
-                $rootScope.pending = false;
-            });
+            // var data_columns_length = 0;
+            // var columns_overflow = 0;
+            // var min_columns_length = 4;
+            // var default_row_length = 637;
+
+            $scope.profileListData = HelperService.getProfileList();
+
+            $scope.profileList = $scope.profileListData.userProfiles;
+            // var columns = $scope.profileList.structure.columns;
+
+            // for (var i in columns) { data_columns_length += 1; } //counting number of columns from data/server
+            // if (data_columns_length > min_columns_length) { columns_overflow = data_columns_length - min_columns_length; } // counting overflow columns for grid change
+
+            // $scope.columnsOverflowLength = columns_overflow;
+
+
+            $scope.contentType = 'profileList';
+            $rootScope.pending = false;
+            // HelperService.getProfileList().then(function (resp) {
+            //     $scope.profileListData = resp.data;
+            //     $scope.profileList = $scope.profileListData.userProfiles;
+            //     $scope.contentType = 'profileList';
+            //     $rootScope.pending = false;
+            // });
 
         };
 
@@ -96,8 +114,8 @@
             var formData = {
                 name: $scope.userFormData.alias,
                 username: $scope.userFormData.username,
-                password: $scope.userFormData.password,
-            }
+                password: $scope.userFormData.password
+            };
 
 
             HelperService.saveUser(formData).then(function (resp) {
