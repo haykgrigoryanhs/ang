@@ -1,0 +1,8 @@
+<div class="dropdown dropdown-menu-left pull-right action-block" ng-if="actions">
+    <span class="glyphicon glyphicon-option-vertical" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></span>
+    <ul class="dropdown-menu">
+        <li ng-repeat="action in actions" class="{{disabled ? 'disabled' : ''}}" ng-click="runAction(action, disabled)">
+            <a class="dropdown-item">{{action | camelcase}}</a>
+        </li>
+    </ul>
+</div>

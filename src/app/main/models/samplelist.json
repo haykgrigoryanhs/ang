@@ -1,0 +1,52 @@
+{
+    "structure": {
+        "columns": {
+            "id": "ID",
+            "name": "Name"
+        },
+        "add_item": false,
+        "actions":false
+    },
+    "data": [
+        {
+            "id": 1,
+            "name": "Angelica England"
+        },
+        {
+            "id": 2,
+            "name": "Wendy Chang"
+        },
+        {
+            "id": 3,
+            "name": "Holder Kerr"
+        },
+        {
+            "id": 4,
+            "name": "Cotton Moody"
+        },
+        {
+            "id": 5,
+            "name": "Chrystal Kennedy"
+        },
+        {
+            "id": 6,
+            "name": "Grace Trujillo"
+        },
+        {
+            "id": 7,
+            "name": "Mills Spencer"
+        },
+        {
+            "id": 8,
+            "name": "Holmes Frank"
+        },
+        {
+            "id": 9,
+            "name": "Doreen Ortega"
+        },
+        {
+            "id": 10,
+            "name": "Valencia Tillman"
+        }
+    ]
+}

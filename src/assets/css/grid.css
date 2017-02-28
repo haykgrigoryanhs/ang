@@ -1,0 +1,53 @@
+.grid-panel-header > button, .dropdown-menu li, .action-block, .grid-show-more-columns > span{
+    cursor: pointer;
+}
+
+.grid-panel-header .add-btn{
+    margin-left: 5px;
+}
+
+.dropdown-menu .dropdown-item{
+    padding: 2px 10px;
+}
+
+.grid_per_page{
+    display: inline-block;
+}
+
+.grid-container{
+    padding-top: 10px;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    overflow: auto;
+}
+
+
+.dropdown-menu .dropdown-item:hover{
+    background-color: #337ab7;
+}
+
+.grid-header-cell{
+    font-weight: 700;
+}
+
+.grid-list{
+    display: table;
+    border-collapse:collapse;
+    width: 100%;
+}
+
+.grid-list-row{
+    display: table-row;
+    border: 1px solid #ddd;
+}
+
+.grid-list-row .columns{
+    padding: 5px 10px;
+    display: table-cell;
+    white-space: nowrap;
+}
+
+.columns-sm{
+    width: 20px;
+}

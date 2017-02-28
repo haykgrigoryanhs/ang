@@ -132,18 +132,17 @@
             <!--<span>{{setting.docId}}</span>-->
         <!--</div>-->
     </div>
-
-
+    <div ng-switch-when="profileList">
         <div class="profile_header">
             <div class="buttons_panel">
                 <button class="btn btn-success pull-right" ng-click="loadProfilesList()">Refresh</button>
                 <button class="btn btn-default pull-right" ng-click="newProfilePage()">Add</button>
             </div>
             <!--<div class="left_side">-->
-                <!--<div class="glyphicon glyphicon-refresh refresh_button" ng-click="loadProfilesList()"></div>-->
+            <!--<div class="glyphicon glyphicon-refresh refresh_button" ng-click="loadProfilesList()"></div>-->
             <!--</div>-->
             <!--<div class="right_side">-->
-                <!--<div ng-click="newProfilePage()" class="glyphicon glyphicon-plus btn-lg add_button"></div>-->
+            <!--<div ng-click="newProfilePage()" class="glyphicon glyphicon-plus btn-lg add_button"></div>-->
             <!--</div>-->
         </div>
         <div class="clear"></div>
@@ -156,12 +155,32 @@
     </div>
 
 
-
     <div ng-switch-when="documentDetails">
-        <div ng-include src ="'app/main/views/documentDetails.html'"></div>
+        <div ng-include src="'./app/main/views/documentDetails.html'"></div>
     </div>
 
-    <div ng-switch-default>
-        <h2>Hello World</h2>
+    <div ng-switch-default ng-controller="AppController">
+        <div class="users-list">
+            <div class="user-list-row">
+                <div class="list-row-cell"></div>
+                <div class="list-row-cell"></div>
+                <div class="list-row-cell"></div>
+                <div class="list-row-cell"></div>
+                <div class="list-row-cell"></div>
+                <div class="list-row-cell"></div>
+            </div>
+        </div>
+
+        <h1>List 1</h1>
+        <list listdata="listdata"></list>
+        <h1>List 2</h1>
+        <list listdata="samplelist"></list>
+
+        <!-- Button trigger modal -->
+        <popup popup-body="listdata" popup-content-type="list" popup-title="" modal="modal1"></popup>
+        <a class="btn btn-primary btn-sm" data-toggle="modal" href="#modal1">Open Popup</a>
+
+
+
     </div>
 </div>

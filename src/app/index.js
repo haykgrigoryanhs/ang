@@ -3,8 +3,8 @@
  */
 
 var API = {
-    robotweb : 'http://localhost:3030/insite/robotweb/',
-    rjswd : 'http://localhost:3030/insite/rjswd/'
+    robotweb : 'http://10.67.0.109:3030/insite/robotweb/',
+    rjswd : 'http://10.67.0.109:3030/insite/rjswd/'
 };
 
 
@@ -25,3 +25,7 @@ var helpSystems = angular.module('HS', [
     // 'angular-appinsights'
     /*'ngMockE2E'*/
 ]);
+
+    
+
+    
