@@ -1,0 +1,11 @@
+.details_info{
+    font-weight: 600;
+}
+
+.view_info span{
+     display: inline-block;
+     width: calc(100% - 140px);
+     word-break: break-all;
+     white-space: normal;
+     vertical-align: top;
+ }
