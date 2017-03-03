@@ -17,8 +17,6 @@ helpSystems.directive('actionsList', function() {
                 if(action == 'view'){
                     $('#modal_' + action + '_'+ scope.itemId).modal('toggle');
                 } else if(action == 'edit') {
-                    scope.title = "Edit Item";
-                    console.log(scope);
                     $('#modal_' + action + '_' + scope.itemId).modal('toggle');
                 } else if(action == 'delete'){
                     parent.remove()
