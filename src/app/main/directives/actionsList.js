@@ -14,13 +14,16 @@ helpSystems.directive('actionsList', function() {
             var parent = element.parent().parent();
             scope.runAction = function(action, isDisable){
                 if(isDisable) return;
-                console.log(action, scope);
                 if(action == 'view'){
-                    $('#modal_'+scope.itemId).modal('toggle');
+                    $('#modal_' + action + '_'+ scope.itemId).modal('toggle');
+                } else if(action == 'edit') {
+                    scope.title = "Edit Item";
+                    console.log(scope);
+                    $('#modal_' + action + '_' + scope.itemId).modal('toggle');
                 } else if(action == 'delete'){
                     parent.remove()
                 }
             }
         }
-    };
-})
+    }
+});

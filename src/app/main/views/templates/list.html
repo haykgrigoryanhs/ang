@@ -51,8 +51,9 @@
                 </div>
                 <div ng-repeat="(key, value) in listdata.structure.columns" ng-hide="!hideColumns.indexOf(key)" ng-if="listdata.structure.columns" class="columns" >{{item.grid_info[key]}}</div>
                 <div class="columns">
-                    <popup popup-body="item.grid_info" popup-content-type="info" popup-save="item.editable" popup-title="item.grid_info.name" modal="modal_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
                     <actions-list actions="item.actions" ng-if="listdata.structure.actions" item-id="item.grid_info.id" disabled="item.action_disabled"></actions-list>
+                    <popup popup-body="item.grid_info" popup-content-type="crud" popup-save="item.action_editable" popup-title="item.name" modal="modal_edit_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
+                    <popup popup-body="item.grid_info" popup-content-type="info" popup-save="!item.action_editable" popup-title="item.name" modal="modal_view_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
                     <span class="glyphicon glyphicon-menu-right pull-right" ng-if="!listdata.structure.actions"></span>
                 </div>
             </div>

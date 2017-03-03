@@ -47,7 +47,11 @@
     padding: 5px 10px;
     display: table-cell;
     white-space: nowrap;
-    vertical-align: top;
+    vertical-align: top;/*
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+    min-width: 25px;*/
 }
 
 .columns-sm{

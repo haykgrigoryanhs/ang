@@ -29,7 +29,6 @@
       "action_editable":true,
       "actions": [
         "edit",
-        "view",
         "delete"
       ]
     },
@@ -45,6 +44,7 @@
         "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_disabled":false,
+      "action_editable":true,
       "actions": null
     },
     {
@@ -96,7 +96,8 @@
         "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_editable":false,
-      "action_disabled":false
+      "action_disabled":false,
+      "actions": null
     },
     {
       "grid_info":{
@@ -110,7 +111,8 @@
         "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_editable":false,
-      "action_disabled":false
+      "action_disabled":false,
+      "actions": null
     }
   ],
   "max_count": 0
