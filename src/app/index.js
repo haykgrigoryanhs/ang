@@ -24,7 +24,10 @@ var helpSystems = angular.module('HS', [
     'angular-page-visibility',
     // 'angular-appinsights'
     /*'ngMockE2E'*/
-]);
+]).config(['$httpProvider', function ($httpProvider) {
+    // enable http caching
+    $httpProvider.defaults.cache = false;
+}]);
 
     
 

@@ -11,9 +11,10 @@ helpSystems.directive('actionsList', function() {
             itemId: "="
         },
         link: function(scope, element){
-            var parent = element.parent();
+            var parent = element.parent().parent();
             scope.runAction = function(action, isDisable){
-                if(isDisable) return
+                if(isDisable) return;
+                console.log(action, scope);
                 if(action == 'view'){
                     $('#modal_'+scope.itemId).modal('toggle');
                 } else if(action == 'delete'){

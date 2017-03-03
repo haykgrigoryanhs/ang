@@ -20,6 +20,8 @@
                 if(resp && resp.data.success){
                     HelperService.getCredentials().then(function (resp) {
                         $rootScope.pending = false;
+                        localStorage.setItem('credentials', JSON.stringify(resp))
+                        localStorage.setItem('isLoggedIn', true)
                         $scope.initCredentials(resp);
                         $rootScope.isLoggedIn = true;
                     });
@@ -34,6 +36,7 @@
            AuthService.logout().then(function (response) {
                // $rootScope.pending = false;
                if(response && response.data.success){
+
                    $rootScope.isLoggedIn = false;
                }
 

@@ -3,7 +3,7 @@
  */
 helpSystems.directive('itemsForm',function(){
     return {
-        templateUrl: 'app/main/views/templates/add_item.html',
+        templateUrl: 'app/main/views/templates/item_form.html',
         restrict: 'E',
         scope: {
             items: "=info"

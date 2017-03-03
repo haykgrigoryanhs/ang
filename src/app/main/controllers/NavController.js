@@ -19,15 +19,14 @@
             AuthService.logout().then(function (resp) {
                 if(resp && resp.data.success){
                     $rootScope.isLoggedIn = false;
+                    localStorage.removeItem('credentials')
+                    localStorage.removeItem('isLoggedIn')
                 }
             });
             $rootScope.isLoggedIn = false;
+            localStorage.removeItem('credentials')
+            localStorage.removeItem('isLoggedIn')
         };
-
-
-
-
-
 
         init();
     }];

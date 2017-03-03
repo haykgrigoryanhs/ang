@@ -9,6 +9,7 @@ helpSystems.directive('popup', function(){
             title: '=popupTitle',
             body: "=popupBody",
             type: "@popupContentType",
+            popupSave: "@",
             modalId: '@modal'
         }
     };

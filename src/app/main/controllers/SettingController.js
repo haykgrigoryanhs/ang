@@ -6,12 +6,12 @@
 
         function init() {
             $scope.credentials  = $rootScope.credentials;
-            // $scope.connectionDefinition = $rootScope.credentials.credentials[0].connectionDefinition;
+            //$scope.connectionDefinition = $rootScope.credentials.credentials[0].connectionDefinition;
         }
 
         $scope.$on('initCredentials', function (events, args) {
             $scope.credentials  = $rootScope.credentials;
-            $scope.connectionDefinition = $rootScope.credentials[0].connectionDefinition;
+            $scope.connectionDefinition = $scope.credentials[0].connectionDefinition;
         });
 
         $scope.loadUserSettings = function() {

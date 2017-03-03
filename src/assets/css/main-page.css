@@ -24,7 +24,8 @@
 .form-item-body {
     display: inline-block;
     float: right;
-    background-color: rgba(114, 83, 57, 0.07);
+    padding: 0;
+    /*background-color: rgba(114, 83, 57, 0.07);*/
 }
 
 .user_setting {

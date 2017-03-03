@@ -1,1 +1,1 @@
-<p><b>Name:</b>&nbsp;<span>{{details.name}}</span></p>
+<p ng-repeat="(key, detail) in details" class="view_info"><span class="details_info">{{key | camelcase}}:</span>&nbsp;<span>{{detail}}</span></p>

@@ -160,16 +160,6 @@
     </div>
 
     <div ng-switch-default ng-controller="AppController">
-        <div class="users-list">
-            <div class="user-list-row">
-                <div class="list-row-cell"></div>
-                <div class="list-row-cell"></div>
-                <div class="list-row-cell"></div>
-                <div class="list-row-cell"></div>
-                <div class="list-row-cell"></div>
-                <div class="list-row-cell"></div>
-            </div>
-        </div>
 
         <h1>List 1</h1>
         <list listdata="listdata"></list>
@@ -177,10 +167,8 @@
         <list listdata="samplelist"></list>
 
         <!-- Button trigger modal -->
-        <popup popup-body="listdata" popup-content-type="list" popup-title="" modal="modal1"></popup>
-        <a class="btn btn-primary btn-sm" data-toggle="modal" href="#modal1">Open Popup</a>
-
-
+       <!-- <popup popup-body="samplelist" popup-content-type="list" popup-title="" modal="modal1"></popup>
+        <a class="btn btn-primary btn-sm" data-toggle="modal" href="#modal1">Open Popup</a>-->
 
     </div>
 </div>

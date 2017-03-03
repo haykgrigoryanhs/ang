@@ -15,7 +15,7 @@
         }
 
         $scope.initCredentials = function (credentials) {
-            $rootScope.credentials = credentials.data.credentials;
+            $rootScope.credentials = localStorage.getItem('credentials') ? JSON.parse(localStorage.getItem('credentials')).data.credentials : credentials.data.credentials;
             $scope.$broadcast('initCredentials');
         };
 
@@ -24,7 +24,7 @@
         };
 
         $scope.loggedIn = function () {
-            return $rootScope.isLoggedIn;
+            return localStorage.getItem('isLoggedIn') ? localStorage.getItem('isLoggedIn') : $rootScope.isLoggedIn;
         };
 
         $scope.emitInboxLoading = function (id) {
