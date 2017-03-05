@@ -26,22 +26,32 @@ html, body, div.height-all{
 /************************** profile list table******************/
 
 .user_profile_list {
-    width: 640px;
+    margin-top: 20px;
+    width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+    border: 1px solid #DDDDDD;
+    border-collapse: collapse;
 }
 
 .user_profile_row {
-    height: 38px;
-    min-width: 640px; /* increase .profile_row width with 174px per one nested div */
+    height: 35px;
+    display: table-row;
+}
+
+.user_profile_row:hover {
+    background-color: #eaeaea;
 }
 
 .user_profile_row .profile_cell {
-    height: 38px;
-    display: inline-block;
-    border: 1px solid #DDDDDD;
-    width: 173px; /* 174/175 px cell width with border*/
+    padding: 7px 15px;
+    display: table-cell;
+    border-bottom: 1px solid #DDDDDD;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 400px;
 }
 .user_profile_row .remove_left_border {
     border-left: 0;
@@ -51,26 +61,24 @@ html, body, div.height-all{
     /*cursor: pointer;*/
     /*background-color: #ebebeb;*/
 /*}*/
-.user_profile_list span {
+span {
     font-family: Calibri;
 }
 
-.header span {
+.header {
     font-weight: bold;
 }
 
+.action_button {
+    cursor: pointer;
+}
+
 .user_profile_row .actions {
-    width: 58px;
+    overflow: visible;
 }
 
 .user_profile_row .id {
     width: 58px; /* 660pc ID cell width with border*/
-}
-
-.row_header_text {
-    height: 18px;
-    padding: 10px 15px;
-    display: block;
 }
 
 .clear {

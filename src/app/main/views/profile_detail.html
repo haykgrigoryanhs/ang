@@ -7,7 +7,16 @@
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">{{data.name}}</h4>
             </div>
-            <div class="modal-body">{{data}}</div>
+            <div class="modal-body">
+                <p><b>ID</b> : {{data.id}}</p>
+                <p><b>Username</b> : {{data.username}}</p>
+                <p><b>Age</b> : {{data.age}}</p>
+                <p><b>Address</b> : {{data.address}}</p>
+                <p><b>Email</b> : {{data.email}}</p>
+                <p><b>Color</b> : {{data.color}}</p>
+                <p><b>City</b> : {{data.city}}</p>
+                <p><b>UUID</b> : {{data.uuid}}</p>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>

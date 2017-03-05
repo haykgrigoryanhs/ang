@@ -159,7 +159,10 @@
         <div ng-include src="'./app/main/views/documentDetails.html'"></div>
     </div>
 
-    <div ng-switch-default ng-controller="AppController">
+    <div ng-switch-default>
+
+        <div class="profile-list" data="profileList"></div>
+        <br><hr><br>
 
         <h1>List 1</h1>
         <list listdata="listdata"></list>

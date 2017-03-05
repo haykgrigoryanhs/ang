@@ -1,18 +1,18 @@
 <div class="user_profile_list">
     <div class="user_profile_row header">
-        <div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" ng-repeat="(key, value) in profileList.structure.columns">
-            <span class="row_header_text">{{ value }}</span>
+        <div class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
+            {{ value }}
         </div>
-        <!--<div class="profile_cell actions"><span class="row_header_text">::</span></div>-->
+        <div class="profile_cell actions"></div>
     </div>
-    <div class="user_profile_row" ng-repeat="profile in profileList.data">
-        <div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
-            <span class="row_header_text">{{ profile[key] }}</span>
+    <div ng-show="show_current_row" class="user_profile_row" ng-repeat="profile in profileList.data">
+        <div class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
+            {{ profile[key] }}
         </div>
-        <div class="profile_cell actions"><span class="row_header_text">::
-            <!--<action-list data="profile" profile-id="profile.id"></action-list>-->
-            <!--<profile-detail data="profile"></profile-detail>-->
-        </span></div>
+        <div class="profile_cell actions">
+            <action-list ng-show="!profile.action_disabled" data="profile" profile-id="profile.id"></action-list>
+            <profile-detail data="profile"></profile-detail>
+        </div>
     </div>
     <div class="clear"></div>
 </div>
