@@ -1,7 +1,7 @@
 <div class="btn-group pull-right dropdown action_button">
     <span class="glyphicon glyphicon-option-vertical" data-toggle="dropdown"></span>
     <ul class="dropdown-menu">
-        <li ng-click="actionClick(action)" ng-repeat="action in profile.actions"><a href="#">{{action.name}}</a></li>
+        <li ng-class="{'disabled': !profile.action_editable}" ng-click="actionClick(action, profile.action_editable)" ng-repeat="action in profile.actions"><a href="#">{{action.name}}</a></li>
     </ul>
 </div>
 <div class="clear"></div>
