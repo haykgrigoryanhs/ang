@@ -14,158 +14,15 @@
         </ul>
     </div>
 
-    <div ng-switch-when="systemSettingsList">
-        <h2>Admin Settings</h2>
-        <hr>
-        <div class="btn btn-default btn-lg system_setting" ng-click="showProductConnectionsList()">
-            <h3 class="setting_header">Product Connections</h3>
-            <p class="setting_desc">Connect HelpSystems Insite to systems that have the products installed.</p>
-        </div>
-        <div class="btn btn-default btn-lg system_setting"  ng-click="editAuthSettings()">
-            <h3 class="setting_header">Authentication</h3>
-            <p class="setting_desc">Specify how to authenticate HelpSystems Insite users.</p>
-        </div>
-        <div class="btn btn-default btn-lg system_setting" ng-click="editLoggingSettings()">
-            <h3 class="setting_header">Logging</h3>
-            <p class="setting_desc">Configure the logging level for HelpSystems Insite.</p>
-        </div>
-    </div>
-
-    <div ng-switch-when="product_connections">
-        <h2>Product Connections</h2>
-        <hr>
-        <div class="add_connection_panel">
-            <button class="btn btn-success pull-right" ng-click="addNewConnection()">
-                <i class="glyphicon glyphicon-plus-sign"></i>
-                Add
-            </button>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th><input type="checkbox" /></th>
-                    <th>Alias</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="prod_conn in connectionDefinition">
-                    <th class="col-md-1">
-                        <input type="checkbox" />
-                    </th>
-                    <td class="col-md-12"><span>{{prod_conn.definedISeries.alias}}</span></td>
-                    <td class="col-md-1">
-                        <span class="glyphicon glyphicon-option-vertical"></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div ng-switch-when="add_connection">
-        <h2>New Connections</h2>
-        <hr>
-        <div class="buttons_panel">
-            <button class="btn btn-success pull-right" ng-click="saveConnection()">Save</button>
-            <button class="btn btn-default pull-right" ng-click="closeConnection()">Cancel</button>
-        </div>
-        <div class="form_container">
-            <ng-include src="'app/main/views/_new_connection.html'"></ng-include>
-        </div>
-    </div>
-
-    <div ng-switch-when="auth_settings">
-        <h2>Authentication</h2>
-        <hr>
-        <div class="buttons_panel">
-            <button class="btn btn-success pull-right" ng-click="authBtnClick(true)">Save</button>
-            <button class="btn btn-default pull-right" ng-click="authBtnClick()">Cancel</button>
-        </div>
-        <div class="form_container">
-            <ng-include src="'app/main/views/_auth_settings.html'"></ng-include>
-        </div>
-    </div>
-
-    <div ng-switch-when="logging_settings">
-        <h2>Logging</h2>
-        <hr>
-        <div class="buttons_panel">
-            <button class="btn btn-success pull-right" ng-click="loggingBtnClick(true)">Save</button>
-            <button class="btn btn-default pull-right" ng-click="loggingBtnClick()">Cancel</button>
-        </div>
-        <div class="form_container">
-            <ng-include src="'app/main/views/_logging.html'"></ng-include>
-        </div>
-    </div>
-
-
-    <div ng-switch-when="userSettingList">
-        <h1 class="user_setting">User Settings</h1>
-
-        <div class="panel-content landing-page">
-            <div class="link-wrapper btn configure-credential setting_button" ng-click="">
-                <div ng-click="loadUser">
-                    <h2 class="title">{{ userSettinglist[0].header }}</h2>
-                    <p class="description">{{ userSettinglist[0].desc }}</p>
-                    <i class="fa fa-chevron-circle-right"></i>
-                </div>
-            </div>
-
-            <div class="link-wrapper btn configure-credential setting_button" ng-click="loadProfilesList()">
-                <div ng-click="loadUser">
-                    <h2 class="title">{{ userSettinglist[1].header }}</h2>
-                    <p class="description">{{ userSettinglist[1].desc }}</p>
-                    <i class="fa fa-chevron-circle-right"></i>
-                </div>
-            </div>
-
-            <div class="link-wrapper btn configure-credential setting_button">
-                <div ng-click="loadUser">
-                    <h2 class="title">{{ userSettinglist[2].header }}</h2>
-                    <p class="description">{{ userSettinglist[2].desc }}</p>
-                    <i class="fa fa-chevron-circle-right"></i>
-                </div>
-            </div>
-        </div>
-        <!--<div ng-repeat="setting in settingList" ng-click="">-->
-            <!--<span>{{setting.title}}</span>-->
-            <!--<span>{{setting.docId}}</span>-->
-        <!--</div>-->
-    </div>
-    <div ng-switch-when="profileList">
-        <div class="profile_header">
-            <div class="buttons_panel">
-                <button class="btn btn-success pull-right" ng-click="loadProfilesList()">Refresh</button>
-                <button class="btn btn-default pull-right" ng-click="newProfilePage()">Add</button>
-            </div>
-            <!--<div class="left_side">-->
-            <!--<div class="glyphicon glyphicon-refresh refresh_button" ng-click="loadProfilesList()"></div>-->
-            <!--</div>-->
-            <!--<div class="right_side">-->
-            <!--<div ng-click="newProfilePage()" class="glyphicon glyphicon-plus btn-lg add_button"></div>-->
-            <!--</div>-->
-        </div>
-        <div class="clear"></div>
-        <!--<profile-list data="profileList"></profile-list>-->
-        <div class="profile-list" data="profileList" columns-overflow-length="columnsOverflowLength"></div>
-    </div>
-
-    <div ng-switch-when="newProfilePage">
-        <ng-include src="'./app/main/views/_new_profile_page.html'"></ng-include>
-    </div>
-
-
     <div ng-switch-when="documentDetails">
         <div ng-include src="'./app/main/views/documentDetails.html'"></div>
     </div>
 
-    <div ng-switch-default>
+    <div ng-if="showGrids">
         <h1>List 0</h1><br>
-        <div class="show-columns"></div>
+
         <div style="display: block; width: 100%; overflow-x: auto; overflow-y: hidden;" class="profile-list" data="profileList"></div>
         <br><hr><br>
-
-
 
         <br><br>
         <popup template-body="users" list-content="users"  popup-content-type="list" popup-title="" modal="modal1" show-pagination="false" show-refresh="true" show-per-page="false" show-exact-columns="false"></popup>
@@ -179,9 +36,5 @@
         <list listdata="userinfo" list-content="userinfo" show-pagination="true" show-refresh="true" show-per-page="true" show-exact-columns="true"></list>
         <h1>List 2</h1>
         <list listdata="users" list-content="users" show-pagination="true" show-refresh="true" show-per-page="true" show-exact-columns="true"></list>
-
-
-
-
     </div>
 </div>

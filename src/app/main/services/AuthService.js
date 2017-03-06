@@ -12,19 +12,13 @@
     var AuthService = ['$http', '$rootScope', function ($http, $rootScope) {
         var Auth = {};
 
-
         Auth.login = function(params) {
-            $rootScope.pending = true;
             return $http.put(API.robotweb + 'login', params, { 'bbbb': 'aaaa'});
         };
 
-
-
         Auth.logout = function() {
-            // $rootScope.pending = true;
             return $http.put(API.robotweb + 'logout');
         };
-
 
         return Auth;
     }];

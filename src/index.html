@@ -17,21 +17,25 @@
 <body>
 
 <div class="main height-all" ng-controller="PageController as pageCtrl">
-        <ng-include src ="'app/main/views/navbar.html'"></ng-include>
-        <div class="container-fluid height-all content">
+        <ng-include src ="'app/main/views/navbar.html'" ng-show="loggedIn()"></ng-include>
+        <div class="container-fluid height-all content" ng-show="loggedIn()">
             <div class="row height-all">
                 <div class="col-md-2 vert-nav-bar height-all">
                     <div ng-include src ="'app/main/views/vert-nav-bar.html'"  ng-controller="VNavController"></div>
                 </div>
-                <div class="col-md-10 main-page height-all">
-                    <div ng-include src ="'app/main/views/content.html'"  ng-controller="ContentController"></div>
+                <div class="col-md-10 main-page height-all" ng-switch="pageSwitch">
+                    <div ng-switch-when="documentList">
+                        <div  ng-include src ="'app/main/views/content.html'"  ng-controller="ContentController"></div>
+                    </div>
+                    <div ng-switch-when="settings" >
+                        <div ng-include src ="'app/main/views/settings.html'"  ng-controller="SettingsController"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-
-    <!--<div class="container-fluid login-container" ng-show="!loggedIn()">
+    <div class="container-fluid login-container" ng-show="!loggedIn()">
         <div class="row">
             <div ng-include src ="'app/main/views/login.html'"></div>
         </div>
@@ -39,9 +43,7 @@
     <div class="pending" ng-show="pending">
         <H2>Loading</H2>
         <span><img src="assets/img/spinner_32x32.gif" /></span>
-    </div>-->
-
-    <!--<div ng-controller="LastController"></div>-->
+    </div>
 </div>
 
 
@@ -72,11 +74,9 @@
 <script src="app/main/controllers/PageController.js"></script>
 <script src="app/main/controllers/NavController.js"></script>
 <script src="app/main/controllers/LoginController.js"></script>
-<script src="app/main/controllers/SettingController.js"></script>
-<script src="app/main/controllers/AppController.js"></script>
+<script src="app/main/controllers/SettingsController.js"></script>
 <script src="app/main/controllers/ContentController.js"></script>
 <script src="app/main/controllers/VNavController.js"></script>
-<script src="app/main/controllers/SettingController.js"></script>
 
 
 <script src="app/main/services/AuthService.js"></script>
@@ -86,7 +86,6 @@
 <script src="app/main/directives/ProfileList.js"></script>
 <script src="app/main/directives/ActionList.js"></script>
 <script src="app/main/directives/ProfileDetail.js"></script>
-<!--<script src="app/main/controllers/LastController.js"></script>-->
 
 
 <script src="app/main/directives/list.js"></script>

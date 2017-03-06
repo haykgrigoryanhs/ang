@@ -8,10 +8,11 @@
     var PageController = ['$rootScope', '$scope', 'HelperService', function ($rootScope, $scope, HelperService) {
 
         function init() {
-            $rootScope.pending = false;
             $rootScope.credentials = null;
             $rootScope.isLoggedIn = false;
             $rootScope.inboxes = null;
+            $rootScope.pending = false;
+            $scope.pageSwitch = 'documentList';
         }
 
         $scope.initCredentials = function (credentials) {
@@ -28,11 +29,13 @@
         };
 
         $scope.emitInboxLoading = function (id) {
+            $scope.pageSwitch = 'documentList';
             $scope.$broadcast('showInboxes', { id: id });
         };
 
 
         $scope.emitAdminSettings = function(){
+            $scope.pageSwitch = 'settings';
             $scope.$broadcast('showAdminSettings');
         }
 
@@ -41,6 +44,7 @@
         }*/
 
         $scope.emitUserSettingLoading = function () {
+            $scope.pageSwitch = 'settings';
             $scope.$broadcast('showUserSettings');
         };
 

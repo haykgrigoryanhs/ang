@@ -2,6 +2,10 @@
     cursor: pointer;
 }
 
+.grid-container{
+    margin-top: 20px;
+}
+
 .grid-panel-header .add-btn,
 .grid-panel-header .grid_show_columns{
     margin-left: 5px;

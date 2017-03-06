@@ -12,36 +12,30 @@
         }
 
         $scope.login = function () {
-            // var $data = {
-            //     password : "admin",
-            //     username : "admin"};
-            AuthService.login($scope.loginFormData).then(function (resp) {
-                $rootScope.pending = false;
-                if(resp && resp.data.success){
-                    HelperService.getCredentials().then(function (resp) {
-                        $rootScope.pending = false;
-                        localStorage.setItem('credentials', JSON.stringify(resp))
-                        localStorage.setItem('isLoggedIn', true)
-                        $scope.initCredentials(resp);
-                        $rootScope.isLoggedIn = true;
-                    });
-                }
-            },function (resp) {
-
-            });
-
+            AuthService.login($scope.loginFormData).then(
+                function (resp) {
+                    if (resp && resp.data.success) {
+                        HelperService.getCredentials().then(function (resp) {
+                            $scope.initCredentials(resp);
+                            $rootScope.isLoggedIn = true;
+                        });
+                    }
+                },
+                function (resp) {
+                    console.log(resp);
+                });
         };
 
         $scope.logout = function () {
-           AuthService.logout().then(function (response) {
-               // $rootScope.pending = false;
-               if(response && response.data.success){
-
-                   $rootScope.isLoggedIn = false;
-               }
-
-           });
-
+            AuthService.logout().then(
+                function (response) {
+                    if (response && response.data.success) {
+                        $rootScope.isLoggedIn = false;
+                    }
+                },
+                function (resp) {
+                    console.log(resp);
+                });
         };
 
         init();

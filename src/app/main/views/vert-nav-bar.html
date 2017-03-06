@@ -16,9 +16,9 @@
         <div ng-show="showFolders">
             <h3><a href="#">Webdocs iSeries</a></h3>
             <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
-                <button type="button" class="btn btn-default">Home</button>
+                <!--<button type="button" class="btn btn-default">Home</button>-->
                 <button type="button" class="btn btn-default" ng-click="loadInboxes()">Inbox</button>
-                <button type="button" class="btn btn-default">Preferences</button>
+                <!--<button type="button" class="btn btn-default">Preferences</button>-->
             </div>
         </div>
     </div>
@@ -26,14 +26,11 @@
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <div ng-controller="SettingController">
+        <div>
             <h3><a href="#">Server Settings</a></h3>
             <div class="btn-group-vertical" role="group" aria-label="Asdasdas">
-                <button type="button" class="btn btn-default">Getting started</button>
-
                 <button type="button" class="btn btn-default" ng-click="showAdminSettings()">Admin Settings</button>
                 <button type="button" class="btn btn-default" ng-click="loadUserSettings()">User Settings</button>
-                <button type="button" class="btn btn-default">About</button>
             </div>
         </div>
     </div>

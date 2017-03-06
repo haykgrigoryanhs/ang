@@ -10,22 +10,26 @@
         $scope.showFolders = false;
 
         function init() {
-            $scope.credentials  = $rootScope.credentials;
+            $scope.credentials = $rootScope.credentials;
             $scope.definedISeries = $rootScope.definedISeries;
 
         }
 
         $scope.logout = function () {
-            AuthService.logout().then(function (resp) {
-                if(resp && resp.data.success){
-                    $rootScope.isLoggedIn = false;
-                    localStorage.removeItem('credentials')
-                    localStorage.removeItem('isLoggedIn')
-                }
-            });
+            AuthService.logout().then(
+                function (resp) {
+                    if (resp && resp.data.success) {
+                        $rootScope.isLoggedIn = false;
+                        localStorage.removeItem('credentials');
+                        localStorage.removeItem('isLoggedIn');
+                    }
+                },
+                function (resp) {
+                    console.log(resp);
+                });
             $rootScope.isLoggedIn = false;
-            localStorage.removeItem('credentials')
-            localStorage.removeItem('isLoggedIn')
+            localStorage.removeItem('credentials');
+            localStorage.removeItem('isLoggedIn');
         };
 
         init();

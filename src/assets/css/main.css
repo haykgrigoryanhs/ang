@@ -7,8 +7,8 @@ html, body, div.height-all{
 }
 .pending{
     position: absolute;
-    top: 370px;
-    left: 800px;
+    top: 40%;
+    left: 50%;
 }
 .pending img{
     padding-left: 30px;
@@ -87,4 +87,8 @@ span {
 
 .clear {
     clear: both;
+}
+
+.profile-list-style{
+    overflow: auto;
 }
