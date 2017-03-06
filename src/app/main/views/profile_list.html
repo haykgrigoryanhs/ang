@@ -1,41 +1,19 @@
 <div class="user_profile_list">
+
     <div class="user_profile_row header">
-        <div ng-hide="excluded_columns.indexOf(key) > -1" class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
-            {{ value }}
-        </div>
+        <div class="profile_cell" ng-repeat="column in columns">{{ column }}</div>
         <div class="profile_cell actions"></div>
     </div>
-    <div ng-show="show_current_row" class="user_profile_row" ng-repeat="profile in profileList.data">
-        <div ng-hide="excluded_columns.indexOf(key) > -1" class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
-            {{ profile[key] }}
-        </div>
+    <div ng-show="show_current_row" class="user_profile_row" ng-repeat="profile in profileList">
+        <div class="profile_cell">{{ profile.id }}</div>
+        <div class="profile_cell">{{ profile.name }}</div>
+        <div class="profile_cell">{{ profile.username }}</div>
+        <div class="profile_cell">{{ profile.removed }}</div>
+        <div class="profile_cell">{{ profile.hasPassword }}</div>
         <div class="profile_cell actions">
-            <action-list ng-show="!profile.action_disabled" data="profile" profile-id="profile.id"></action-list>
+            <action-list data="profile" profile-id="profile.id"></action-list>
             <profile-detail data="profile"></profile-detail>
         </div>
     </div>
     <div class="clear"></div>
 </div>
-
-
-<!--<div class="user_profile_list">-->
-<!--<div class="user_profile_row header" ng-style="{width: columnsOverflowLength === 0 ? '637px' : 637 + columnsOverflowLength * 174 + 'px'}">-->
-<!--<div ng-repeat="(key, value) in profileList.structure.columns">-->
-<!--<div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" class="profile_cell"><span class="row_header_text">{{ value }}</span></div>-->
-<!--</div>-->
-<!--<div class="profile_cell actions"><span class="row_header_text"></span></div>-->
-<!--</div>-->
-<!--<div class="clear"></div>-->
-<!--<div class="user_profile_row" ng-repeat="profile in profileList.data" ng-style="{width: columnsOverflowLength === 0 ? '637px' : 637 + columnsOverflowLength * 174 + 'px'}">-->
-<!--<div ng-repeat="(key, value) in profileList.structure.columns">-->
-<!--<div ng-class="key == 'id' ? 'profile_cell id':'profile_cell'" class="profile_cell"><span class="row_header_text">{{ profile[key] }}</span></div>-->
-<!--</div>-->
-<!--<div class="profile_cell actions"><span class="row_header_text"></span></div>-->
-<!--</div>-->
-<!--<div class="clear"></div>-->
-<!--</div>-->
-
-
-<!--<div class="phone_row" ng-repeat="profile in profileList.data">-->
-<!--<a class="list-group-item phone_desc">{{profile.name}}</a>-->
-<!--</div>-->

@@ -38,9 +38,12 @@
         });
 
         $scope.loadProfilesList = function (data) {
-            $scope.profileListData = HelperService.getProfileList();
-            $scope.profileList = $scope.profileListData.userProfiles;
-            $scope.settingsType = 'profileListGrid';
+            HelperService.getProfileList().then(function (resp) {
+                $scope.profileListData = resp.data;
+                $scope.profileList = $scope.profileListData.userProfiles;
+                $scope.settingsType = 'profileListGrid';
+                $rootScope.pending = false;
+            });
         };
 
         $scope.newProfilePage = function () {

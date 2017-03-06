@@ -119,8 +119,7 @@
     <div ng-switch-when="profileListGrid">
         <list listdata="userinfo" list-content="userinfo" show-pagination="true" show-refresh="true" show-per-page="true" show-exact-columns="true"></list>
 
-        <div class="show-columns"></div>
-        <div  class="profile-list-style">
+        <div class="profile-list-style">
             <div class="profile_header">
                 <div class="buttons_panel">
                     <button class="btn btn-success pull-right" ng-click="loadProfilesList()">Refresh</button>
@@ -128,7 +127,7 @@
                 </div>
             </div>
             <div class="clear"></div>
-            <div class="profile-list" data="profileList" columns-overflow-length="columnsOverflowLength"></div>
+            <div class="profile-list" data="profileList"></div>
         </div>
     </div>
 

@@ -9,13 +9,11 @@
             templateUrl: 'app/main/views/action_list.html',
             link: function(scope, element, attrs) {
 
-                scope.actionClick = function(action, editable) {
-                    if (editable) {
-                        if (action.name === 'Delete') {
-                            scope.$parent.show_current_row = false;
-                        } else if (action.name === 'Details') {
-                            $("#myModal_"+scope.profileId).modal();
-                        }
+                scope.actionClick = function(action) {
+                    if (action === 'Delete') {
+                        scope.$parent.show_current_row = false;
+                    } else if (action === 'Details') {
+                        $("#myModal_"+scope.profileId).modal();
                     }
                 };
             }
