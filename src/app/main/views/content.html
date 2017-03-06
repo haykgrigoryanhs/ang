@@ -160,13 +160,17 @@
     </div>
 
     <div ng-switch-default>
+        <h1>List 0</h1><br>
+        <div class="show-columns"></div>
+        <div style="display: block; width: 100%; overflow-x: auto; overflow-y: hidden;" class="profile-list" data="profileList"></div>
+        <br><hr><br>
+
+
+
         <br><br>
         <popup template-body="users" list-content="users" popup-content-type="list" popup-title="" modal="modal1" show-pagination="false" show-refresh="true" show-per-page="false" show-exact-columns="false"></popup>
         <a class="btn btn-primary btn-sm" data-toggle="modal" href="#modal1">Open Popup</a>
         <br><br>
-
-       <div class="profile-list" data="profileList"></div>
-        <br><hr><br>
 
         <h1>List 1</h1>
         <list listdata="userinfo" list-content="userinfo" show-pagination="true" show-refresh="true" show-per-page="true" show-exact-columns="true"></list>

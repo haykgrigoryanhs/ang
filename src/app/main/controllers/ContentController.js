@@ -6,6 +6,9 @@
 
 (function (helpSystems) {
     var ContentController = ['$rootScope', '$scope', 'HelperService', 'AuthService', function ($rootScope, $scope, HelperService, AuthService) {
+        $scope.$on('changeColumnEmit', function(obj, column, checkbox) {
+            $scope.$broadcast('changeColumnBroadcast', column, checkbox);
+        });
 
         function init() {
             $scope.inboxesData = null;

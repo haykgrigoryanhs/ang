@@ -1,12 +1,12 @@
 <div class="user_profile_list">
     <div class="user_profile_row header">
-        <div class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
+        <div ng-hide="excluded_columns.indexOf(key) > -1" class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
             {{ value }}
         </div>
         <div class="profile_cell actions"></div>
     </div>
     <div ng-show="show_current_row" class="user_profile_row" ng-repeat="profile in profileList.data">
-        <div class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
+        <div ng-hide="excluded_columns.indexOf(key) > -1" class="profile_cell" ng-repeat="(key, value) in profileList.structure.columns">
             {{ profile[key] }}
         </div>
         <div class="profile_cell actions">
