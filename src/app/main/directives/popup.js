@@ -6,7 +6,7 @@ helpSystems.directive('popup', function(){
         templateUrl: 'app/main/views/templates/popup.html',
         restrict: 'E',
         scope: {
-            title: '=popupTitle',
+            title: '=?popupTitle',
             templateBody: "=templateBody",
             listContent: "=",
             type: "@popupContentType",
@@ -18,7 +18,7 @@ helpSystems.directive('popup', function(){
             showRefresh:"="
         },
         link: function (scope) {
-            //scope.title = 'Popup Title'
+            scope.title = 'Popup Title';
         }
     };
 })

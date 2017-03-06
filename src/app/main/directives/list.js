@@ -28,7 +28,6 @@ helpSystems.directive('list', ['gridService', function(gridService){
             }
         },
         link: function (scope) {
-            console.log(scope)
             scope.sortBy = function(propertyName) {
                 scope.sortReverse = (scope.sortType === propertyName) ? !scope.sortReverse : false;
                 scope.sortType = propertyName;
