@@ -7,7 +7,11 @@ helpSystems.directive('list', ['gridService', function(gridService){
         templateUrl: 'app/main/views/templates/list.html',
         scope: {
             listdata: "=",
-            gridType: "@listdata"
+            listContent: "@",
+            showPagination:"=",
+            showExactColumns:"=",
+            showPerPage:"=",
+            showRefresh:"="
         },
         controller: function($scope, gridService){
             $scope.sortReverse = false;
@@ -15,8 +19,8 @@ helpSystems.directive('list', ['gridService', function(gridService){
             $scope.current_page = 1;
             $scope.hideColumns = [];
             $scope.per_page = 10;
-            if($scope.gridType!='body'){
-                gridService.getListData($scope.gridType, 0, $scope.per_page).then(function(data){
+            if(typeof $scope.listContent !== 'undefined'){
+                gridService.getListData($scope.listContent, 0, $scope.per_page).then(function(data){
                     $scope.listdata =  data;
                     var datalength = $scope.listdata.max_count;
                     $scope.pages_count = (datalength/$scope.per_page <= 1) ? 0: Math.ceil(datalength/$scope.per_page);
@@ -24,6 +28,7 @@ helpSystems.directive('list', ['gridService', function(gridService){
             }
         },
         link: function (scope) {
+            console.log(scope)
             scope.sortBy = function(propertyName) {
                 scope.sortReverse = (scope.sortType === propertyName) ? !scope.sortReverse : false;
                 scope.sortType = propertyName;
@@ -32,16 +37,20 @@ helpSystems.directive('list', ['gridService', function(gridService){
                 $(e.target).parent().parent().find('.per_page').text(value);
                 scope.per_page = value;
                 scope.current_page = 1;
-                gridService.getListData(scope.gridType, 0, value).then(function(data){
-                    scope.listdata =  data;
-                    var datalength = scope.listdata.max_count;
-                    scope.pages_count = (datalength/scope.per_page <= 1) ? 0: Math.ceil(datalength/scope.per_page);
-                });
+                if(typeof scope.listContent !== 'undefined') {
+                    gridService.getListData(scope.listContent, 0, value).then(function (data) {
+                        scope.listdata = data;
+                        var datalength = scope.listdata.max_count;
+                        scope.pages_count = (datalength / scope.per_page <= 1) ? 0 : Math.ceil(datalength / scope.per_page);
+                    });
+                }
             },
             scope.refreshGrid = function(){
-                 gridService.getListData(scope.gridType).then(function(data){
-                    scope.listdata =  data;
-                 });
+                 if(typeof scope.listContent !== 'undefined') {
+                    gridService.getListData(scope.listContent).then(function(data){
+                        scope.listdata =  data;
+                    });
+                 }
             },
             scope.addGridItem = function(){
                 scope.title = "Add Item";
@@ -84,9 +93,11 @@ helpSystems.directive('list', ['gridService', function(gridService){
                 scope.current_page = page_number;
                 var start = scope.per_page * (scope.current_page - 1)
                 var offset = scope.per_page + start;
-                gridService.getListData(scope.gridType, start, offset).then(function(data){
-                    scope.listdata =  data;
-                });
+                if(typeof scope.listContent !== 'undefined') {
+                    gridService.getListData(scope.listContent, start, offset).then(function (data) {
+                        scope.listdata = data;
+                    });
+                }
             }   
         }
     }

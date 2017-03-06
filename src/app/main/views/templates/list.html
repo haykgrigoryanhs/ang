@@ -1,36 +1,5 @@
 <div class="grid-container">
-    <div class="grid-panel-header">
-        <button class="btn btn-success btn-sm pull-right add-btn" ng-if="listdata.structure.add_item" ng-click="addGridItem()"><span class="glyphicon glyphicon-plus"></span>  Add</button>
-        <button class="btn btn-default btn-sm pull-right refresh-btn" ng-click="refreshGrid()"><span class="glyphicon glyphicon-refresh"></span></button>
-        <div class="dropdown grid_per_page pull-left">
-            Show
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="caret"></span>
-                <span class="per_page">10</span>
-            </button>
-            items
-            <ul class="dropdown-menu">
-                <li data-value="5" class="dropdown-item"   ng-click="choosePaginationCount($event, 5)">5</li>
-                <li data-value="10" class="dropdown-item"  ng-click="choosePaginationCount($event, 10)">10</li>
-                <li data-value="25" class="dropdown-item"  ng-click="choosePaginationCount($event, 25)">25</li>
-                <li data-value="50" class="dropdown-item"  ng-click="choosePaginationCount($event, 50)">50</li>
-                <li data-value="100" class="dropdown-item" ng-click="choosePaginationCount($event, 100)">100</li>
-            </ul>
-        </div>
-        <div class="dropdown grid_show_columns">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <span class="caret"></span>
-                <span class="per_page">Show columns</span>
-            </button>
-            <ul class="dropdown-menu">
-                <li class="dropdown-item" ng-repeat="(k, col) in listdata.structure.columns">
-                    <input type="checkbox" checked class="check-columns" ng-click="showColumns($event, k)" value="k">
-                    {{col}}
-                </li>
-            </ul>
-        </div>
-        <p class="clearfix"></p>
-    </div>
+    <ng-include src="'./app/main/views/templates/partials/_grid_header.html'"></ng-include>
     <div class="grid-list-table">
         <div class="grid-list">
             <div class="grid-list-row">
@@ -38,7 +7,7 @@
                     <input type="checkbox" class="check-all" ng-model="checkAll" ng-click="checkedAll()" value="">
                 </div>
                 <div ng-repeat="(k, col) in listdata.structure.columns" ng-if="listdata.structure.columns" class="columns grid-header-cell"
-                     ng-click="sortBy(k)" ng-hide="!hideColumns.indexOf(k)" ng-class="{sortReverse: sortReverse}">
+                     ng-click="sortBy(k)" ng-hide="hideColumns.indexOf(k)>-1" ng-class="{sortReverse: sortReverse}">
                     {{col}}
                     <span ng-if="sortType === k && !sortReverse" class="glyphicon glyphicon-menu-down"></span>
                     <span ng-if="sortType === k && sortReverse" class="glyphicon glyphicon-menu-up"></span>
@@ -49,31 +18,16 @@
                 <div class="columns columns-sm">
                     <input type="checkbox" ng-model="item.checked" value="">
                 </div>
-                <div ng-repeat="(key, value) in listdata.structure.columns" ng-hide="!hideColumns.indexOf(key)" ng-if="listdata.structure.columns" class="columns" >{{item.grid_info[key]}}</div>
+                <div ng-repeat="(key, value) in listdata.structure.columns" ng-hide="hideColumns.indexOf(key)>-1" ng-if="listdata.structure.columns" class="columns" >{{item.grid_info[key]}}</div>
                 <div class="columns">
                     <actions-list actions="item.actions" ng-if="listdata.structure.actions" item-id="item.grid_info.id" disabled="item.action_disabled"></actions-list>
-                    <popup popup-body="item.grid_info" popup-content-type="crud" popup-save="item.action_editable" popup-title="item.grid_info.name" modal="modal_edit_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
-                    <popup popup-body="item.grid_info" popup-content-type="info" popup-save="item.action_editable" popup-title="item.grid_info.name" modal="modal_view_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
+                    <popup template-body="item.grid_info" list-conntent="" popup-content-type="crud" popup-save="item.action_editable" popup-title="item.grid_info.name" modal="modal_edit_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
+                    <popup template-body="item.grid_info" list-conntent="" popup-content-type="info" popup-save="item.action_editable" popup-title="item.grid_info.name" modal="modal_view_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
                     <span class="glyphicon glyphicon-menu-right pull-right" ng-if="!listdata.structure.actions"></span>
                 </div>
             </div>
         </div>
     </div>
-    <nav class="pull-right pagination-panel" ng-show="pages_count!=0">
-        <ul class="pagination">
-            <li ng-class="current_page == 1 ? 'disabled':''" ng-click="prevPage()">
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li ng-class="current_page == $index+1 ? 'active':''" ng-repeat="n in [] | range:pages_count" ng-click="goToPage($index+1)"><a href="#">{{$index+1}}</a></li>
-            <li ng-class="current_page == pages_count ? 'disabled':''" ng-click="nextPage()">
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <span class="clearfix"></span>
+    <ng-include src="'./app/main/views/templates/partials/_grid_footer.html'" ng-if="showPagination"></ng-include>
 </div>
-<popup popup-body="listdata.structure.columns" popup-content-type="crud" popup-save="true" popup-title="title" modal="add_item"></popup>
+<popup template-body="listdata.structure.columns" list-conntent="" popup-content-type="crud" popup-save="true" popup-title="title" modal="add_item"></popup>

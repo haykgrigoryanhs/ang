@@ -1,0 +1,16 @@
+<nav class="pull-right pagination-panel" ng-show="pages_count!=0">
+    <ul class="pagination">
+        <li ng-class="current_page == 1 ? 'disabled':''" ng-click="prevPage()">
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li ng-class="current_page == $index+1 ? 'active':''" ng-repeat="n in [] | range:pages_count" ng-click="goToPage($index+1)"><a href="#">{{$index+1}}</a></li>
+        <li ng-class="current_page == pages_count ? 'disabled':''" ng-click="nextPage()">
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<span class="clearfix"></span>

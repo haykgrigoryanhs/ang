@@ -7,10 +7,18 @@ helpSystems.directive('popup', function(){
         restrict: 'E',
         scope: {
             title: '=popupTitle',
-            body: "=popupBody",
+            templateBody: "=templateBody",
+            listContent: "=",
             type: "@popupContentType",
             popupSave: "=",
-            modalId: '@modal'
+            modalId: '@modal',
+            showPagination:"=",
+            showExactColumns:"=",
+            showPerPage:"=",
+            showRefresh:"="
+        },
+        link: function (scope) {
+            //scope.title = 'Popup Title'
         }
     };
 })

@@ -3,9 +3,9 @@
  */
 helpSystems.factory('gridService', ['$http',  function($http) {
     return {
-        getListData: function(grid_type, start, offset) {
+        getListData: function(grid_content_type, start, offset) {
             // $http returns a promise, which has a then function, which also returns a promise
-            return $http.get('app/main/models/' + grid_type + '.json').
+            return $http.get('app/main/models/' + grid_content_type + '.json').
                     then(function (resp) {
                         if(!offset || offset > resp.data.data.length) offset = resp.data.data.length;
                         resp.data.max_count = resp.data.data.length;

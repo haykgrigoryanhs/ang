@@ -6,9 +6,9 @@
                 <h4 class="modal-title" id="modalLabel">{{title}}</h4>
             </div>
             <div class="modal-body" ng-switch="type">
-                <list listdata="body" columns="item" ng-switch-when="list"></list>
-                <view-info info="body" ng-switch-when="info"></view-info>
-                <items-form info="body" ng-switch-when="crud"></items-form>
+                <list listdata="templateBody" list-conntent="listContent" columns="item" ng-switch-when="list" show-pagination="showPagination" show-refresh="showRefresh" show-per-page="showPerPage" show-exact-columns="showExactColumns"></list>
+                <view-info info="templateBody" ng-switch-when="info"></view-info>
+                <items-form info="templateBody" ng-switch-when="crud"></items-form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
