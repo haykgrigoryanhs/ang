@@ -35,7 +35,7 @@ html, body, div.height-all{
 }
 
 .user_profile_row {
-    height: 35px;
+    height: 27px;
     display: table-row;
 }
 
@@ -44,7 +44,7 @@ html, body, div.height-all{
 }
 
 .user_profile_row .profile_cell {
-    padding: 7px 15px;
+    padding: 2px 15px;
     display: table-cell;
     border-bottom: 1px solid #DDDDDD;
     white-space: nowrap;
