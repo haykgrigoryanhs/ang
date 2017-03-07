@@ -6,7 +6,8 @@ helpSystems.directive('itemsForm',function(){
         templateUrl: 'app/main/views/templates/item_form.html',
         restrict: 'E',
         scope: {
-            items: "=info"
+            items: "=info",
+            item: "=?"
         }
     }
 });

@@ -21,8 +21,8 @@
                 <div ng-repeat="(key, value) in listdata.structure.columns" ng-hide="hideColumns.indexOf(key)>-1" ng-if="listdata.structure.columns" class="columns" >{{item.grid_info[key]}}</div>
                 <div class="columns">
                     <actions-list actions="item.actions" ng-if="listdata.structure.actions" item-id="item.grid_info.id" disabled="item.action_disabled"></actions-list>
-                    <popup template-body="item.grid_info" list-conntent="" popup-content-type="crud" popup-save="item.action_editable" popup-title="item.grid_info.name" modal="modal_edit_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
-                    <popup template-body="item.grid_info" list-conntent="" popup-content-type="info" popup-save="item.action_editable" popup-title="item.grid_info.name" modal="modal_view_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
+                    <popup template-body="listdata.structure.editable_columns" item="item.grid_info" list-conntent="" popup-content-type="crud" popup-edit="item.action_editable" popup-title="item.grid_info.name" modal="modal_edit_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
+                    <popup template-body="item.grid_info" list-conntent="" popup-content-type="info" popup-add="item.action_editable" popup-title="item.grid_info.name" modal="modal_view_{{item.grid_info.id}}" ng-if="listdata.structure.actions"></popup>
                     <span class="glyphicon glyphicon-menu-right pull-right" ng-if="!listdata.structure.actions"></span>
                 </div>
             </div>
@@ -30,4 +30,4 @@
     </div>
     <ng-include src="'./app/main/views/templates/partials/_grid_footer.html'" ng-if="showPagination"></ng-include>
 </div>
-<popup template-body="listdata.structure.columns" list-conntent="" popup-content-type="crud" popup-save="true" popup-title="title" modal="add_item"></popup>
+<popup template-body="listdata.structure.editable_columns" list-conntent="" popup-content-type="crud" popup-add="true" popup-title="title" modal="add_item"></popup>

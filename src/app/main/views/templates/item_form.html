@@ -1,6 +1,6 @@
 <div class="add_edit_item">
     <div class="form-group" ng-repeat="(key, value) in items">
         <label>{{key | camelcase}}:  </label>
-        <input type="text" class="form-control" name="item_prop_key" ng-model="item_prop_key" value="{{value}}">
+        <input type="text" class="form-control" name="item_prop[key]" data-item="{{key}}" value="{{item[key]}}">
     </div>
 </div>

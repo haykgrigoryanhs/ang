@@ -11,6 +11,13 @@
       "other_column" : "Some other column"
     },
     "add_item": true,
+    "editable_columns": {
+      "name": "Name",
+      "full_name": "Full Name",
+      "age": "Age",
+      "email": "Email",
+      "username": "Useranme"
+    },
     "actions": true
   },
   "data": [

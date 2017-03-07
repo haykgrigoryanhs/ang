@@ -8,11 +8,12 @@
             <div class="modal-body" ng-switch="type">
                 <list listdata="templateBody" list-conntent="listContent" columns="item" ng-switch-when="list" show-pagination="showPagination" show-refresh="showRefresh" show-per-page="showPerPage" show-exact-columns="showExactColumns"></list>
                 <view-info info="templateBody" ng-switch-when="info"></view-info>
-                <items-form info="templateBody" ng-switch-when="crud"></items-form>
+                <items-form info="templateBody" item="item" ng-switch-when="crud"></items-form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-if="popupSave">Save</button>
+                <button type="button" class="btn btn-primary" ng-if="popupAdd" ng-click="addItem()">Save</button>
+                <button type="button" class="btn btn-primary" ng-if="popupEdit" ng-click="editItem(item)">Edit</button>
             </div>
         </div>
     </div>
