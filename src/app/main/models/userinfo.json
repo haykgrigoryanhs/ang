@@ -8,7 +8,7 @@
       "email": "Email",
       "username" : "Useranme",
       "token" : "Token",
-      "other_column" : "Some other column"
+      "other_info": "Other Info"
     },
     "add_item": true,
     "editable_columns": {
@@ -16,7 +16,9 @@
       "full_name": "Full Name",
       "age": "Age",
       "email": "Email",
-      "username": "Useranme"
+      "username": "Useranme",
+      "token": "Token",
+      "other_info": "Other Info"
     },
     "actions": true
   },
@@ -30,7 +32,7 @@
         "email": "rataadatwetrewrwe@ewtwe.com",
         "username" : "rtytryruyi  erterte",
         "token" : "53sdas4456dghhgkkbva47586876sfsdf6657867545a1ds",
-        "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
+        "other_info" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_disabled":false,
       "action_editable":true,
@@ -48,7 +50,7 @@
         "email": "rataadatwetrewrwe@ewtwe.com",
         "username" : "rtytryruyi  erterte",
         "token" : "53sdas4456dghhgkkbva47586876sfsdf6657867545a1ds",
-        "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
+        "other_info" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_disabled":false,
       "action_editable":true,
@@ -63,7 +65,7 @@
         "email": "rataadatwetrewrrwtyncvcdxcvcvxcvwe@ewtwe.com",
         "username" : "rtytryruyi  ouioxzcxcz",
         "token" : "53sdas4456dghhgkkbva47586876sfsdf6657867545a1ds",
-        "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
+        "other_info" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_disabled":true,
       "action_editable":true,
@@ -82,7 +84,7 @@
         "email": "rataadatwetreweqwerwe@errewrwwtwe.com",
         "username" : "rtytryruyi  tretert",
         "token" : "53sdas4456dghhgkkbva47586876sfsdf6657867545a1ds",
-        "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
+        "other_info" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_disabled":false,
       "action_editable":false,
@@ -100,7 +102,7 @@
         "email": "rataadatwetrewrwe@ewtwe.com",
         "username" : "rtytryruyi465645rterte",
         "token" : "53sdas4456dghhgkkbva47586876sfsdf6657867545a1ds",
-        "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
+        "other_info" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_editable":false,
       "action_disabled":false,
@@ -115,7 +117,7 @@
         "email": "rataadatwetrewrwe@ewtwe.com",
         "username" : "rtytryruyi465645rterte",
         "token" : "53sdas4456dghhgkkbva47586876sfsdf6657867545a1ds",
-        "other_column" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
+        "other_info" : "53sdas4456dghhgkkbva4758685345364564654645645676sfsdf6657867545a1ds"
       },
       "action_editable":false,
       "action_disabled":false,
